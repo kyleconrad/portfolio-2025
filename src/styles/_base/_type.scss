@@ -26,6 +26,7 @@
     @include LockSerif;
 
     letter-spacing: -0.04em;
+    line-height: 1.1;
 
 
 
@@ -50,9 +51,23 @@
 
 .h1 {
     font-size: clamp( 40px, calc( var( --base ) * 7 ), 84px );
-
-    line-height: 1.1;
 }
+
+.h2 {
+    font-size: clamp( 24px, calc( var( --base ) * 5 ), 64px );
+
+    @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 2px, $line-height: 1.1 );
+}
+
+.h4 {
+    @include Hauss;
+    
+    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+
 
 
 
@@ -85,4 +100,62 @@
     &:focus {
         color: var( --black );
     }
+}
+
+
+
+
+
+//// Subheads
+.subhead {
+    @include Inter( medium );
+
+    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
+    letter-spacing: -0.02em;
+
+    color: var( --gray );
+}
+
+
+
+
+
+//// Copy
+.content {
+    p {
+        @include Inter( regular );
+
+        font-size: clamp( 14px, calc( var( --base ) * 2 ), 32px );
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+
+
+
+        strong {
+            @include Inter( bold );
+        }
+
+        em {
+            @include Inter( regular, true );
+        }
+
+
+
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+}
+
+
+
+
+
+//// Lists
+.list {
+    @include Inter( regular );
+
+    font-size: clamp( 8px, calc( var( --base ) * 1.25 ), 20px );
+    line-height: 1.5;
+    letter-spacing: -0.02em;
 }

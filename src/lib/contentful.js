@@ -208,18 +208,6 @@ async function getNavigation() {
 
 
 // Text options
-export const navOptions = {
-	renderMark: {
-	},
-	renderNode: {
-		[BLOCKS.UL_LIST]: (node, next) => `${next(node.content)}`,
-		[BLOCKS.LIST_ITEM]: (node, next) => `<li>${next(node.content)}</li>`,
-		[BLOCKS.PARAGRAPH]: (node, next) => `${next(node.content)}`,
-		[INLINES.HYPERLINK]: (node, next) => `<a href=${node.data.uri} target="_blank" rel="noopener noreferrer">${next(node.content)}</a>`,
-	},
-	preserveWhitespace: false
-}
-
 export const headlineOptions = {
 	renderMark: {
 		[MARKS.BOLD]: text => `<strong>${text}</strong>`,
@@ -243,6 +231,18 @@ export const copyOptions = {
 		[INLINES.HYPERLINK]: (node, next) => `<a href=${node.data.uri} target="_blank" rel="noopener noreferrer">${next(node.content)}</a>`,
 	},
 	preserveWhitespace: true
+}
+
+export const listOptions = {
+	renderMark: {
+	},
+	renderNode: {
+		[BLOCKS.UL_LIST]: (node, next) => `${next(node.content)}`,
+		[BLOCKS.LIST_ITEM]: (node, next) => `<li>${next(node.content)}</li>`,
+		[BLOCKS.PARAGRAPH]: (node, next) => `${next(node.content)}`,
+		[INLINES.HYPERLINK]: (node, next) => `<a href=${node.data.uri} target="_blank" rel="noopener noreferrer">${next(node.content)}</a>`,
+	},
+	preserveWhitespace: false
 }
 
 

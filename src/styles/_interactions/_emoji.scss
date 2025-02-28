@@ -48,4 +48,28 @@
                 auto;
         }
     }
+
+    .hover-design {
+        &:hover {
+            cursor:
+                url( '/images/emoji/emoji-design.png' ) 24 24,
+                auto;
+        }
+    }
+
+    .hover-code {
+        &:hover {
+            cursor:
+                url( '/images/emoji/emoji-code.png' ) 24 24,
+                auto;
+        }
+    }
+
+    .hover-word {
+        &:hover {
+            cursor:
+                url( '/images/emoji/emoji-word.png' ) 24 24,
+                auto;
+        }
+    }
 }

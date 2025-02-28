@@ -26,6 +26,33 @@
 
 
 
+//// Sidebar grid
+.grid--sidebar {
+    display: grid; 
+
+    grid-auto-flow: column; 
+
+    grid-template-columns: 1fr 20%;
+    grid-template-rows: 1fr; 
+
+    gap: calc( var( --base ) * 10 ); 
+
+    grid-template-areas: 
+        "content sidebar"; 
+
+
+
+    .grid--columns__content {
+        grid-area: content;
+    }
+
+    .grid--columns__sidebar {
+        grid-area: sidebar;
+    }
+}
+
+
+
 //// Card grid
 .grid--card {
     display: grid;
