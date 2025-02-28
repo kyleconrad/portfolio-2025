@@ -2,8 +2,10 @@
 import { contentfulGraphQLClient } from "../lib/contentful";
 
 import Head from '../elements/Head.astro';
+
 import Hero from '../blocks/Hero.astro';
 import About from '../blocks/About.astro';
+import Footer from '../blocks/Footer.astro';
 
 const home = await contentfulGraphQLClient.getHome();
 const navigation = await contentfulGraphQLClient.getNavigation();
@@ -17,5 +19,7 @@ const navigation = await contentfulGraphQLClient.getNavigation();
 		<Hero headline={ home.headline } navigation={ navigation.navigationLinks } />
 
 		<About headline={ home.aboutHeadline } copy={ home.aboutCopy } subhead1={ home.aboutColumnSubhead1 } list1={ home.aboutColumnList1 } subhead2={ home.aboutColumnSubhead2 } list2={ home.aboutColumnList2 } />
+
+		<Footer navigation={ navigation } />
     </body>
 </html>

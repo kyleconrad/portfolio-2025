@@ -28,7 +28,7 @@ console.log( headlineRender );
                 </div>
                 
                 { ( subhead2 && list2 ) &&
-                    <div class="margin-top--24">
+                    <div>
                         <h4 class="h4 text--black">{ subhead2 }</h4>
                         <ul set:html={ documentToHtmlString( list2.json, listOptions ) } class="list margin-top--4 text--gray" />
                     </div>

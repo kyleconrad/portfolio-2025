@@ -1,0 +1,12 @@
+// About
+
+.about {
+    .grid--columns__sidebar {
+        display: flex;
+        flex-direction: column;
+        
+        align-items: stretch;
+
+        gap: calc( var( --base ) * 3 );
+    }
+}
