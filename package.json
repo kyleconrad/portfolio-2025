@@ -1,0 +1,38 @@
+{
+  "name": "portfolio-2025",
+  "version": "1.0.0",
+  "description": "Astro build of Kyle Conrad's 2025 portfolio redesign/rebuild using Contentful as the content management system.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run open-browser && astro dev --host",
+    "start": "npm run open-browser && astro dev --host",
+    "build": "astro build",
+    "preview": "npm run open-browser && astro preview --host",
+    "open-browser": "open http://localhost:4321/",
+    "update": "npm-check --update",
+    "deploy": "./deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleconrad/portfolio-2025.git"
+  },
+  "keywords": [],
+  "author": "Kyle Conrad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyleconrad/portfolio-2025/issues"
+  },
+  "homepage": "https://github.com/kyleconrad/portfolio-2025#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "@contentful/rich-text-html-renderer": "^17.0.0",
+    "@playform/compress": "^0.1.1",
+    "astro": "^5.4.0",
+    "astro-compressor": "^1.0.0",
+    "contentful": "^11.5.2",
+    "sass": "^1.78.0"
+  },
+  "devDependencies": {
+    "npm-check": "^6.0.1"
+  }
+}
