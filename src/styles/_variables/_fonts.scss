@@ -1,0 +1,145 @@
+@use "sass:math";
+
+
+
+// Fonts
+
+//// Hauss
+@font-face {
+    font-family: 'Hauss';
+    src:    url( '/fonts/Hauss-Bold.woff2' ) format( 'woff2 supports variations' ),
+            url( '/fonts/Hauss-Bold.woff2' ) format( 'woff2-variations' ),
+            url( '/fonts/Hauss-Bold.woff2' ) format( 'woff2' );
+    font-weight: 700;
+    font-style: normal;
+    font-display: block;
+}
+
+@mixin Hauss() {
+    font-family: 'Hauss', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+//// Lock Serif
+@font-face {
+    font-family: 'Lock Serif';
+    src:    url( '/fonts/LockSerif-Light.woff2' ) format( 'woff2 supports variations' ),
+            url( '/fonts/LockSerif-Light.woff2' ) format( 'woff2-variations' ),
+            url( '/fonts/LockSerif-Light.woff2' ) format( 'woff2' );
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
+}
+
+@mixin LockSerif() {
+    font-family: 'Lock Serif', serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+//// PP Pangaia
+@font-face {
+    font-family: 'PP Pangaia';
+    src:    url( '/fonts/PPPangaia-UltralightItalic.woff2' ) format( 'woff2 supports variations' ),
+            url( '/fonts/PPPangaia-UltralightItalic.woff2' ) format( 'woff2-variations' ),
+            url( '/fonts/PPPangaia-UltralightItalic.woff2' ) format( 'woff2' );
+    font-weight: 300;
+    font-style: italic;
+    font-display: block;
+}
+
+@mixin PPPangaia() {
+    font-family: 'PP Pangaia', serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+
+//// Sharp Roman
+@font-face {
+    font-family: 'Sharp Roman';
+    src:    url( '/fonts/SharpRoman-Roman.woff2' ) format( 'woff2 supports variations' ),
+            url( '/fonts/SharpRoman-Roman.woff2' ) format( 'woff2-variations' ),
+            url( '/fonts/SharpRoman-Roman.woff2' ) format( 'woff2' );
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+@mixin SharpRoman() {
+    font-family: 'Sharp Roman', serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+//// Inter
+@font-face {
+    font-family: 'Inter';
+    src:    url( '/fonts/Inter-Regular.woff2' ) format( 'woff2' );
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family: 'Inter';
+    src:    url( '/fonts/Inter-Italic.woff2' ) format( 'woff2' );
+    font-weight: 400;
+    font-style: italic;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src:    url( '/fonts/Inter-Medium.woff2' ) format( 'woff2' );
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family: 'Inter';
+    src:    url( '/fonts/Inter-MediumItalic.woff2' ) format( 'woff2' );
+    font-weight: 500;
+    font-style: italic;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url( '/fonts/Inter-Bold.woff2' ) format( 'woff2' );
+    font-weight: 700;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url( '/fonts/Inter-BoldItalic.woff2' ) format( 'woff2' );
+    font-weight: 700;
+    font-style: italic;
+    font-display: block;
+}
+
+@mixin Inter( $weight: regular, $italic: false ) {
+    font-family: 'Inter', sans-serif;
+
+    @if $weight == 'regular' {
+        font-weight: 400;
+    }
+    @if $weight == 'medium' {
+        font-weight: 500;
+    }
+    @if $weight == 'bold' {
+        font-weight: 700;
+    }
+
+    @if $italic {
+        font-style: italic;
+    }
+}

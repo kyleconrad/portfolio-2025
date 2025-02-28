@@ -1,0 +1,24 @@
+// Hero
+
+.hero {
+    .h1 {
+        width: 75%;
+
+        margin-top: calc( var( --base ) * 25 );
+    }
+}
+
+
+
+.hero__logo {
+    display: inline-block;
+
+    width: auto;
+    height: 0.85em;
+
+    margin-right: 0.35ch;
+
+    vertical-align: baseline;
+
+    transform: translateY( 7.5% );
+}

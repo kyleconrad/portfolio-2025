@@ -1,0 +1,33 @@
+// Media queries
+$xxLargeWidth: 1900px;
+$largeWidth: 1600px;
+$landscapeWidth: 1200px;
+$portraitWidth: 950px;
+$mobileWidth: 700px;
+$mobileSmallWidth: 325px;
+
+
+
+@mixin breakpoint( $point ) {
+	@if $point == default {
+		@media only screen { @content; }
+	}
+	@else if $point == xxlarge {
+		@media only screen and ( min-width : $xxLargeWidth ) { @content; }
+	}
+	@else if $point == large {
+		@media only screen and ( min-width : $largeWidth ) { @content; }
+	}
+	@else if $point == landscape {
+		@media only screen and ( max-width : $landscapeWidth ) { @content; }
+	}
+	@else if $point == portrait {
+		@media only screen and ( max-width : $portraitWidth ) { @content; }
+	}
+	@else if $point == mobile {
+		@media only screen and ( max-width : $mobileWidth ) { @content; }
+	}
+	@else if $point == mobilesmall {
+		@media only screen and ( max-width : $mobileSmallWidth ) { @content; }
+	}
+}

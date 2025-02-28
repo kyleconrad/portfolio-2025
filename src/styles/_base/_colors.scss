@@ -1,0 +1,39 @@
+// Colors
+:root {
+    --white: #FEFEFE;
+    --light: #C0C0C0;
+    --gray: #707070;
+    --black: #060606;
+
+    --accent: #7A35EA;
+}
+
+
+
+.bkg--white {
+    background: var( --white );
+}
+
+
+
+.text--black {
+    color: var( --black );
+}
+
+.text--gray {
+    color: var( --gray );
+}
+
+
+
+.fill--accent {
+    fill: var( --accent );
+}
+
+.fill--none {
+    fill: none;
+}
+
+.stroke--white {
+    stroke: var( --white );
+}

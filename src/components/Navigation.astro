@@ -1,0 +1,13 @@
+---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { navOptions } from "../lib/contentful";
+
+const { name, navigation } = Astro.props;
+---
+<nav class="nav">
+    { ( name === 'true' ) &&
+        <a href="/" class="nav__home">Kyle Conrad</a>
+    }
+
+    <ul set:html={ documentToHtmlString( navigation.json, navOptions ) } class="nav__menu"/>
+</nav>

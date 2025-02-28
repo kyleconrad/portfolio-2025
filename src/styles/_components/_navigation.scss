@@ -1,0 +1,23 @@
+// Navigation
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    gap: calc( var( --base ) * 10 );
+}
+
+
+
+.nav__menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    align-items: center;
+
+    gap: calc( var( --base ) * 5 );
+}

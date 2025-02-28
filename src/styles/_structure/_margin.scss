@@ -1,0 +1,14 @@
+// Padding
+$sides: top, left, right, bottom;
+
+@for $i from 0 through 20 {
+    .margin--#{ 8 * $i * 0.5 } {
+        margin: calc( var( --base ) * #{ $i * 0.5 } );
+    }
+
+    @each $side in $sides {
+        .margin-#{ $side }--#{ 8 * $i * 0.5 } {
+            margin-#{ $side }: calc( var( --base ) * #{ $i * 0.5 } );
+        }
+    }
+}

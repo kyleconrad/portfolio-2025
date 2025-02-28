@@ -1,0 +1,88 @@
+@use '../_variables/' as *;
+
+
+
+// Type
+* {
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-feature-settings: "kern", "liga", "dlig", "ss03";
+    -moz-font-feature-settings: "kern", "liga", "dlig", "ss03";
+    -moz-font-feature-settings: "kern=1", "liga=1", "dlig=1", "ss03=1";
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "ss03" 1;
+    font-kerning: normal;
+
+    font-variant-ligatures: common-ligatures;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+//// Headlines
+.h1,
+.h2 {
+    @include LockSerif;
+
+    letter-spacing: -0.04em;
+
+
+
+    strong {
+        @include Hauss;
+
+        letter-spacing: -0.02em;
+    }
+
+    em {
+        @include PPPangaia;
+
+        letter-spacing: -0.02em;
+    }
+
+    em.fancy {
+        @include SharpRoman;
+
+        letter-spacing: -0.04em;
+    }
+}
+
+.h1 {
+    font-size: clamp( 40px, calc( var( --base ) * 7 ), 84px );
+
+    line-height: 1.1;
+}
+
+
+
+//// Navigation
+.nav__home {
+    @include Hauss;
+
+    font-size: clamp( 12px, calc( var( --base ) * 2 ), 32px );
+    letter-spacing: -0.02em;
+
+    color: var( --accent );
+
+    text-decoration: none;
+}
+
+.nav__menu a {
+    @include Inter( medium );
+
+    font-size: clamp( 10px, calc( var( --base ) * 1.75 ), 28px );
+    letter-spacing: -0.02em;
+
+    color: var( --gray );
+
+    text-decoration: none;
+
+
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: var( --black );
+    }
+}
