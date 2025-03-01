@@ -1,0 +1,11 @@
+@use '../_variables/' as *;
+
+// Lists
+
+.about__list {
+    @include Inter( regular );
+
+    font-size: clamp( 8px, calc( var( --base ) * 1.25 ), 20px );
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+}

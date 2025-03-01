@@ -7,10 +7,12 @@
 
 
 
-// CSS Variables
+// CSS variables & base settings
 @use '_base/variables';
+@use '_base/main';
 @use '_base/colors';
 @use '_base/type';
+@use '_base/images';
 
 
 
@@ -21,15 +23,28 @@
 
 
 
-// Components
-@use '_components/navigation';
+// Type
+@use '_type/headlines';
+@use '_type/subheads';
+@use '_type/copy';
+@use '_type/nav';
+@use '_type/links';
+@use '_type/lists';
 
 
 
 // Blocks
 @use '_blocks/hero';
+@use '_blocks/cards';
+@use '_blocks/list';
 @use '_blocks/about';
 @use '_blocks/footer';
+
+
+
+// Components
+@use '_components/navigation';
+@use '_components/card';
 
 
 

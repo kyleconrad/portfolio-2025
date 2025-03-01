@@ -1,0 +1,33 @@
+---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { headlineOptions, listOptions } from "../lib/contentful";
+
+import Image from '../components/Image.astro';
+
+const { item } = Astro.props;
+
+const link = '/' + item.slug + '/';
+
+console.log( item );
+---
+<li style={ `--accent: #${ item.accentColor };` }>
+    <a href={ link } class="cards__card grid--card">
+        <div class="grid--card__headline">
+            <h2 class="h2 link--casestudy link--casestudy--large"><strong>{ item.client }:</strong> <span set:html={ documentToHtmlString( item.headline.json, headlineOptions ) } /></h2>
+        </div>
+
+        <div class="grid--card__detail">
+            <p set:html={ documentToHtmlString( item.lede.json, listOptions ) } class="small" />
+
+            <div class="colophon text--gray">
+                <p>{ item.platform }</p>
+                <p>{ item.role }</p>
+                <p>{ item.year }</p>
+            </div>
+        </div>
+
+        <div class="grid--card__thumbnail cards__card__image rounded overflow--hidden">
+            <Image image={ item.previewImage } />
+        </div>
+    </a>
+</li>

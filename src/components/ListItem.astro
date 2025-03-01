@@ -1,0 +1,10 @@
+---
+const { item } = Astro.props;
+
+const link = '/' + item.slug + '/';
+---
+<li style={ `--accent: #${ item.accentColor };` }>
+    <h3>
+        <a href={ link } class="list__link h3 link--casestudy"><strong>{ item.client }:</strong> { item.shortHeadline }</a>
+    </h3>
+</li>

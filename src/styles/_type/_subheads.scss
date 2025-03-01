@@ -1,0 +1,12 @@
+@use '../_variables/' as *;
+
+// Subheads
+
+.subhead {
+    @include Inter( medium );
+
+    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
+    letter-spacing: -0.02em;
+
+    color: var( --gray );
+}

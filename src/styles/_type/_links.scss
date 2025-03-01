@@ -1,0 +1,34 @@
+@use '../_variables/' as *;
+
+// Links
+
+.link--casestudy {
+    &:after {
+        display: inline;
+
+        @include Inter( regular );
+
+        color: var( --light );
+
+        content: '\00a0\00a0\00a0→';
+    }
+
+
+
+    &--large {
+        &:after {
+            content: '\00a0→';
+        }
+    }
+
+
+
+    &:hover,
+    &:active,
+    &:focus {
+        strong,
+        &:after {
+            color: var( --accent );
+        }
+    }
+}

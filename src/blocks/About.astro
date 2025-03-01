@@ -5,35 +5,31 @@ import { headlineOptions, copyOptions, listOptions } from "../lib/contentful";
 const { headline, copy, subhead1, list1, subhead2, list2 } = Astro.props;
 
 const headlineRender = documentToHtmlString( headline.json, headlineOptions ).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
-
-console.log( headlineRender );
 ---
-<section class="about padding--80 text--black">
-    <div class="grid--columns">
-        <div class="grid--columns__sidebar">
-            <span class="subhead sticky">About</span>
+<section class="about padding--80 grid--columns text--black">
+    <div class="grid--columns__sidebar">
+        <span class="subhead sticky">About</span>
+    </div>
+
+    <div class="grid--columns__column grid--sidebar hover-emoji">
+        <div class="grid--columns__content">
+            <h4 set:html={ headlineRender } class="h2" />
+
+            <div set:html={ documentToHtmlString( copy.json, copyOptions ) } class="content margin-top--24" />
         </div>
 
-        <div class="grid--columns__column grid--sidebar hover-emoji">
-            <div class="grid--columns__content">
-                <h3 set:html={ headlineRender } class="h2" />
-
-                <div set:html={ documentToHtmlString( copy.json, copyOptions ) } class="content margin-top--24" />
+        <div class="grid--columns__sidebar">
+            <div>
+                <h5 class="h5 text--black">{ subhead1 }</h5>
+                <ul set:html={ documentToHtmlString( list1.json, listOptions ) } class="about__list margin-top--4 text--gray" />
             </div>
-
-            <div class="grid--columns__sidebar">
+            
+            { ( subhead2 && list2 ) &&
                 <div>
-                    <h4 class="h4 text--black">{ subhead1 }</h4>
-                    <ul set:html={ documentToHtmlString( list1.json, listOptions ) } class="list margin-top--4 text--gray" />
+                    <h5 class="h5 text--black">{ subhead2 }</h5>
+                    <ul set:html={ documentToHtmlString( list2.json, listOptions ) } class="about__list margin-top--4 text--gray" />
                 </div>
-                
-                { ( subhead2 && list2 ) &&
-                    <div>
-                        <h4 class="h4 text--black">{ subhead2 }</h4>
-                        <ul set:html={ documentToHtmlString( list2.json, listOptions ) } class="list margin-top--4 text--gray" />
-                    </div>
-                }
-            </div>
+            }
         </div>
     </div>
 </section>

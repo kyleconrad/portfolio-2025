@@ -46,6 +46,36 @@ async function getHome() {
 				headline {
 					json
 				}
+				featuredWorkCollection {
+					items {
+						slug
+						client
+						accentColor
+						previewImage {
+							url
+							width
+							height
+							description
+						}
+						headline {
+							json
+						}
+						lede {
+							json
+						}
+						platform
+						role
+						year
+					}
+				}
+				additionalWorkCollection {
+					items {
+						slug
+						client
+						accentColor
+						shortHeadline
+					}
+				}
 				aboutHeadline {
 					json
 				}
@@ -235,6 +265,9 @@ export const copyOptions = {
 
 export const listOptions = {
 	renderMark: {
+		[MARKS.BOLD]: text => `${text}`,
+		[MARKS.ITALIC]: text => `${text}`,
+		[MARKS.UNDERLINE]: text => `${text}`,
 	},
 	renderNode: {
 		[BLOCKS.UL_LIST]: (node, next) => `${next(node.content)}`,

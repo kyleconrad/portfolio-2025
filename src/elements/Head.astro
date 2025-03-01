@@ -1,5 +1,7 @@
 ---
 import '../styles/style.scss';
+
+const { title, description, image, url } = Astro.props;
 ---
 <head>
     <meta charset="utf-8">
@@ -8,6 +10,31 @@ import '../styles/style.scss';
     <meta http-equiv="content-language" content="en-us">
     <meta http-equiv="cleartype" content="on" />
     <meta name="robots" content="NOODP" />
+
+    <title>{ title }</title>
+    <meta name="description" content={ description }>
+    <meta name="theme-color" content="#995AFF" />
+    <link rel="canonical" href={ url } />
+    <link rel="index" href="https://kyleconrad.com/">
+    <link rel="author" href="/humans.txt" />
+    <link rel="me" href="mailto:kyle@kyleconrad.com">
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {
+		import.meta.env.MODE == "production" && (
+			<script
+				defer
+				src="https://umami.kyleconrad.com/script.js"
+				data-website-id="ee895e89-4436-4c7f-bc7c-dc3878bb0f40"
+			/>
+		)
+	}
+
+    <link rel="icon" type="image/png" href="/icons/favicon64.png">
+    <link rel="icon" id="fav96" type="image/svg+xml" sizes="96x96" href="/icons/favicon96.png">
+    <link rel="icon" id="fav64" type="image/svg+xml" sizes="64x64" href="/icons/favicon64.png">
+    <link rel="icon" id="fav48" type="image/svg+xml" sizes="48x48" href="/icons/favicon48.png">
+    <link rel="icon" id="fav32" type="image/svg+xml" sizes="32x32" href="/icons/favicon32.png">
 
     <link rel="preload" href="/fonts/Hauss-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/LockSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
@@ -18,4 +45,43 @@ import '../styles/style.scss';
     <link rel="dns-prefetch" href="//videos.ctfassets.net">
     <link rel="preconnect" href="https://images.ctfassets.net">
     <link rel="preconnect" href="https://videos.ctfassets.net">
+
+    <meta property="og:title" content={ title }>
+    <meta property="og:description" content={ description }>
+    <meta property="og:image" content={ image }>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={ url }>
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:title" content={ title }>
+    <meta name="twitter:description" content={ description }>
+    <meta name="twitter:image" content={ image }>
+    <meta name="twitter:url" content={ url }>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@kyle_conrad">
+    <meta name="twitter:dnt" content="on">
 </head>
+
+<script>
+    widowControl( window.innerWidth );
+
+    window.addEventListener( 'resize', ( e ) => {
+        widowControl( window.innerWidth );
+    });
+
+
+
+    function widowControl( width ) {
+        let 	widowElements = document.querySelectorAll<HTMLParagraphElement>( '.content p, p.small' );
+
+        [ ...widowElements ].forEach( element => {
+            element.innerHTML = element.innerHTML.replace( /&nbsp;/g, ' ' );
+        });
+
+        if ( width > 700 ) {
+            [ ...widowElements ].forEach( element => {
+                element.innerHTML = element.innerHTML.replace( /\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/, '&nbsp;$1' );
+            });
+        }
+    }
+</script>

@@ -1,0 +1,18 @@
+---
+import Card from '../components/Card.astro';
+
+const { subhead, cards } = Astro.props;
+---
+<section class="cards padding--80 grid--columns text--black">
+    <div class="grid--columns__sidebar">
+        <span class="subhead sticky">{ subhead }</span>
+    </div>
+
+    <ul class="grid--columns__column cards__list">
+        {
+            cards.map( ( item ) => (
+                <Card item={ item } />
+            ))
+        }
+    </ul>
+</section>

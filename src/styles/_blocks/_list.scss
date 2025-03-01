@@ -1,0 +1,9 @@
+// List
+
+.list__list {
+    & > li {
+        &:not(:last-child) {
+            margin-bottom: calc( var( --base ) * 3 );
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@use '../_variables/' as *;
+
+// Headlines
+
+.h1,
+.h2,
+.h3 {
+    @include LockSerif;
+
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+
+
+
+    strong {
+        @include Hauss;
+
+        letter-spacing: -0.02em;
+    }
+
+    em {
+        @include PPPangaia;
+
+        letter-spacing: -0.02em;
+    }
+
+    em.fancy {
+        @include SharpRoman;
+
+        letter-spacing: -0.04em;
+    }
+}
+
+.h1 {
+    font-size: clamp( 40px, calc( var( --base ) * 7 ), 84px );
+}
+
+.h2 {
+    font-size: clamp( 24px, calc( var( --base ) * 5 ), 64px );
+
+    @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 2px, $line-height: 1.1 );
+}
+
+.h3 {
+    font-size: clamp( 16px, calc( var( --base ) * 3 ), 48px );
+
+    @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 2px, $line-height: 1 );
+}
+
+.h5 {
+    @include Hauss;
+    
+    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+
+    @include text-crop( $top-adjustment: 1px, $bottom-adjustment: 2px, $line-height: 1.2 );
+}

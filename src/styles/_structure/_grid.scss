@@ -18,6 +18,8 @@
 
     .grid--columns__sidebar {
         grid-area: sidebar;
+
+        padding-right: calc( var( --base ) * 5 );
     }
     .grid--columns__column {
         grid-area: column;
@@ -58,7 +60,7 @@
     display: grid;
 
     grid-template-columns: 40% 1fr; 
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
 
     gap: 0;
 
@@ -73,6 +75,10 @@
     }
     .grid--card__detail {
         grid-area: detail;
+    }
+    .grid--card__headline,
+    .grid--card__detail {
+        padding-right: calc( var( --base ) * 5 );
     }
     .grid--card__thumbnail {
         grid-area: thumbnail;

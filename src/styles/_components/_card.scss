@@ -1,0 +1,46 @@
+// Card
+
+.cards__card {
+    .grid--card__detail {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: calc( var( --base ) );
+
+
+
+        .colophon {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+    
+            align-items: center;
+    
+            gap: calc( var( --base ) * 4 );
+        }
+    }
+}
+
+
+
+.cards__card__image {
+    background: var( --lightest );
+}
+
+
+
+.cards__card {
+    &:hover,
+    &:active,
+    &:focus {
+        .h2 strong,
+        .h2:after {
+            color: var( --accent );
+        }
+
+        .cards__card__image {
+            background: var( --accent );
+        }
+    }
+}

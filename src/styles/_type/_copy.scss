@@ -1,0 +1,60 @@
+@use '../_variables/' as *;
+
+// Copy
+
+p {
+    @include Inter( regular );
+
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+
+
+
+    strong {
+        @include Inter( bold );
+    }
+
+    em {
+        @include Inter( regular, true );
+    }
+
+
+
+    a {
+        @include Inter( medium );
+
+        color: inherit;
+
+        text-decoration: none;
+
+
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.content {
+    p {
+        font-size: clamp( 14px, calc( var( --base ) * 2 ), 32px );
+
+
+
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+}
+
+p.small {
+    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
+}
+
+.colophon {
+    p {
+        font-size: clamp( 8px, calc( var( --base ) * 1.25 ), 20px );
+    }
+}
