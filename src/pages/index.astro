@@ -25,11 +25,13 @@ const navigation = await contentfulGraphQLClient.getNavigation();
     <body>
 		<Hero headline={ home.headline } navigation={ navigation.navigationLinks } />
 
-		<Cards subhead="Featured Work" cards={ home.featuredWorkCollection.items } />
+		<main>
+			<Cards subhead="Featured Work" cards={ home.featuredWorkCollection.items } />
 
-		<List subhead="Additional Work" list={ home.additionalWorkCollection.items } />
+			<List subhead="Additional Work" list={ home.additionalWorkCollection.items } />
 
-		<About headline={ home.aboutHeadline } copy={ home.aboutCopy } subhead1={ home.aboutColumnSubhead1 } list1={ home.aboutColumnList1 } subhead2={ home.aboutColumnSubhead2 } list2={ home.aboutColumnList2 } />
+			<About headline={ home.aboutHeadline } copy={ home.aboutCopy } subhead1={ home.aboutColumnSubhead1 } list1={ home.aboutColumnList1 } subhead2={ home.aboutColumnSubhead2 } list2={ home.aboutColumnList2 } />
+		</main>
 
 		<Footer navigation={ navigation } />
     </body>

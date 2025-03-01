@@ -1,0 +1,7 @@
+// Sticky positioning
+
+.sticky {
+    position: sticky;
+
+    top: calc( var( --base ) * 5 );
+}
