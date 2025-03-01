@@ -7,8 +7,6 @@ import Image from '../components/Image.astro';
 const { item } = Astro.props;
 
 const link = '/' + item.slug + '/';
-
-console.log( item );
 ---
 <li style={ `--accent: #${ item.accentColor };` }>
     <a href={ link } class="cards__card grid--card">

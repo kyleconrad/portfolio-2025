@@ -8,12 +8,12 @@ import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kyleconrad.com',
-  integrations: [
-    sitemap(),
-    playformCompress({
-      SVG: false
-    }),
-    compressor()
-  ]
+	site: 'https://kyleconrad.com',
+	integrations: [
+		sitemap(),
+		playformCompress({
+			SVG: false
+		}),
+		compressor()
+	]
 });

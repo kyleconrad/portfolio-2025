@@ -11,8 +11,6 @@ import Footer from '../blocks/Footer.astro';
 
 const home = await contentfulGraphQLClient.getHome();
 const navigation = await contentfulGraphQLClient.getNavigation();
-
-// console.log( home );
 ---
 <html lang="en" class="bkg--white">
 	<Head
@@ -23,7 +21,7 @@ const navigation = await contentfulGraphQLClient.getNavigation();
 	/>
 
     <body>
-		<Hero headline={ home.headline } navigation={ navigation.navigationLinks } />
+		<Hero name="false" headline={ home.headline } navigation={ navigation.navigationLinks } />
 
 		<main>
 			<Cards subhead="Featured Work" cards={ home.featuredWorkCollection.items } />

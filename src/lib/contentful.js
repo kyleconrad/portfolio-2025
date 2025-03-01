@@ -126,114 +126,39 @@ async function getNavigation() {
 
 
 // Get single case study
-// async function getCaseStudy( id ) {
-// 	const variables = {
-// 		id: id
-// 	};
+async function getCaseStudy( id ) {
+	const variables = {
+		id: id
+	};
 
-// 	const query = `
-// 		query ($id: String!) {
-// 			contentfulCaseStudy: caseStudy(id: $id) {
-// 				title
-// 				slug
-// 				year
-// 				detail
-// 				metadataDescription
-// 				metadataImage {
-// 					url
-// 				}
-// 				hero {
-// 					headline
-// 					subheadRich {
-// 						json
-// 					}
-// 				}
-// 				description {
-// 					url
-// 					detail {
-// 						json
-// 					}
-// 					description {
-// 						json
-// 					}
-// 				}
-// 				mediaCollection {
-// 					items {
-// 						... on Image {
-// 							__typename
-// 							image {
-// 								url
-// 								width
-// 								height
-// 								description
-// 							}
-// 						}
-// 						... on SingleColumn {
-// 							__typename
-// 							caption {
-// 								json
-// 							}
-// 							alignment
-// 							imagesCollection {
-// 								items {
-// 									url
-// 									width
-// 									height
-// 									description
-// 								}
-// 							}
-// 						}
-// 						... on DoubleColumn {
-// 							__typename
-// 							caption {
-// 								json
-// 							}
-// 							alignment
-// 							leftColumnImagesCollection {
-// 								items {
-// 									url
-// 									width
-// 									height
-// 									description
-// 								}
-// 							}
-// 							rightColumnImagesCollection {
-// 								items {
-// 									url
-// 									width
-// 									height
-// 									description
-// 								}
-// 							}
-// 						}
-// 						... on Video {
-// 							__typename
-// 							videoWebM {
-// 								url
-// 							}
-// 							videoOgg {
-// 								url
-// 							}
-// 							videoMp4 {
-// 								url
-// 							}
-// 							videoPoster {
-// 								url
-// 							}
-// 							audioBoolean
-// 							loop
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	`;
+	const query = `
+		query ($id: String!) {
+			contentfulCaseStudy: caseStudyV2(id: $id) {
+				slug
+				client
+				metadataDescription
+				metadataImage {
+					url
+				}
+				accentColor
+				headline {
+					json
+				}
+				lede {
+					json
+				}
+				platform
+				role
+				year
+			}
+		}
+	`;
 
-// 	const response = await apiCall( query, variables );
-// 	const json = await response.json();
+	const response = await apiCall( query, variables );
+	const json = await response.json();
 
-// 	return await json.data.contentfulCaseStudy;
-// }
+	return await json.data.contentfulCaseStudy;
+}
 
 
 
@@ -281,5 +206,4 @@ export const listOptions = {
 
 
 // Export get functions
-// export const contentfulGraphQLClient = { getHome, getNavigation, getCaseStudy };
-export const contentfulGraphQLClient = { getHome, getNavigation };
+export const contentfulGraphQLClient = { getHome, getNavigation, getCaseStudy };

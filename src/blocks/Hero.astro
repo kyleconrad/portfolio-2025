@@ -4,12 +4,12 @@ import { headlineOptions } from "../lib/contentful";
 
 import Navigation from '../components/Navigation.astro';
 
-const { headline, navigation } = Astro.props;
+const { name, client, headline, navigation } = Astro.props;
 
 const headlineRender = documentToHtmlString( headline.json, headlineOptions ).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
 ---
 <header class="hero padding-top--40 padding-left--80 padding-right--80 padding-bottom--80 text--black">
-    <Navigation name="false" navigation={ navigation }/>
+    <Navigation name={ name } navigation={ navigation }/>
 
     <h1 class="h1 hover-emoji">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 48 48" class="hero__logo">
@@ -23,6 +23,11 @@ const headlineRender = documentToHtmlString( headline.json, headlineOptions ).re
             <path class="fill--none stroke--white" d="M36.5,33.1s-3.2,2.1-5.7,3.9"/>
             <path class="fill--none stroke--white" d="M9.4,37l14.6-26,14.6,26H9.4Z"/>
         </svg>
+
+        { ( client ) &&
+            <strong>{ client }:</strong>
+        }
+
         <span set:html={ headlineRender } />
     </h1>
 </header>

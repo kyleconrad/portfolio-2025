@@ -1,0 +1,51 @@
+---
+import { contentfulClient, contentfulGraphQLClient } from "../lib/contentful";
+
+import Head from '../elements/Head.astro';
+
+import Hero from '../blocks/Hero.astro';
+import Footer from '../blocks/Footer.astro';
+
+export async function getStaticPaths() {
+    const entries = await contentfulClient.getEntries({
+        content_type: 'caseStudyV2',
+    });
+
+    const caseStudies = entries.items.map( ( caseStudy ) => ({
+        params: {
+            slug: caseStudy.fields.slug
+        },
+        props: {
+            id: caseStudy.sys.id
+        },
+    }));
+
+    return caseStudies;
+}
+
+const { id } = Astro.props;
+
+const navigation = await contentfulGraphQLClient.getNavigation();
+const caseStudy = await contentfulGraphQLClient.getCaseStudy( id );
+
+const metadataTitle = caseStudy.client + ' — Kyle Conrad';
+const metadataUrl = 'https://kyleconrad.com/' + caseStudy.slug + '/';
+---
+<html lang="en" class="bkg--white" style={ `--accent: #${ caseStudy.accentColor };` }>
+    <Head
+        title={ metadataTitle }
+        description={ caseStudy.metadataDescription }
+        image={ caseStudy.metadataImage.url }
+        url={ metadataUrl }
+    />
+    
+    <body>
+        <Hero name="true" client={ caseStudy.client } headline={ caseStudy.headline } navigation={ navigation.navigationLinks } />
+
+        <main>
+
+        </main>
+
+        <Footer navigation={ navigation } />
+    </body>
+</html>
