@@ -1,0 +1,9 @@
+// Text Content Block
+
+.text__column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: calc( var( --base ) * 3 );
+}

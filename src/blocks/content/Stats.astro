@@ -6,7 +6,9 @@ const { content } = Astro.props;
 ---
 <section class="stats padding-left--80 padding-right--80 grid--columns text--black">
     <div class="grid--columns__sidebar">
-        <span class="subhead sticky">{ content.subhead }</span>
+        { ( content.subhead ) &&
+            <span class="subhead sticky">{ content.subhead }</span>
+        }
     </div>
 
     <ul class="grid--columns__column stats__list">

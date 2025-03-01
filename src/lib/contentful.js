@@ -164,6 +164,14 @@ async function getCaseStudy( id ) {
 				}
 				contentBlocksCollection {
 					items {
+						... on ContentText {
+							__typename
+							subhead
+							header
+							copy {
+								json
+							}
+						}
 						... on ContentStats {
 							__typename
 							subhead

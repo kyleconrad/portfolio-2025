@@ -20,13 +20,13 @@ const headlineRender = documentToHtmlString( headline.json, headlineOptions ).re
 
         <div class="grid--columns__sidebar">
             <div>
-                <h5 class="h5 text--black">{ subhead1 }</h5>
+                <h5 class="h6 text--black">{ subhead1 }</h5>
                 <ul set:html={ documentToHtmlString( list1.json, listOptions ) } class="about__list margin-top--4 text--gray" />
             </div>
             
             { ( subhead2 && list2 ) &&
                 <div>
-                    <h5 class="h5 text--black">{ subhead2 }</h5>
+                    <h5 class="h6 text--black">{ subhead2 }</h5>
                     <ul set:html={ documentToHtmlString( list2.json, listOptions ) } class="about__list margin-top--4 text--gray" />
                 </div>
             }

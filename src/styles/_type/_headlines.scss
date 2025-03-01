@@ -58,7 +58,8 @@
 
 
 .h4,
-.h5 {
+.h5,
+.h6 {
     @include Hauss;
 
     letter-spacing: -0.02em;
@@ -68,9 +69,13 @@
 }
 
 .h4 {
-    font-size: clamp( 12px, calc( var( --base ) * 2 ), 32px );
+    font-size: clamp( 24px, calc( var( --base ) * 5 ), 64px );
 }
 
 .h5 {
+    font-size: clamp( 12px, calc( var( --base ) * 2 ), 32px );
+}
+
+.h6 {
     font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
 }

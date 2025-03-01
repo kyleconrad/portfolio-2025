@@ -9,7 +9,7 @@ const { content } = Astro.props;
         { ( content.name || content.detail ) &&
             <div class="sticky">
                 { ( content.name ) &&
-                    <span class="h4 text--black">{ content.name }</span>
+                    <span class="h5 text--black">{ content.name }</span>
                 }
                 { ( content.detail ) &&
                     <span class="subhead text--gray">{ content.detail }</span>
