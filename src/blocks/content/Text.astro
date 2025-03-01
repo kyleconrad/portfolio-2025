@@ -1,8 +1,82 @@
 ---
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+
 import { copyOptions } from "../../lib/contentful";
 
+import Image from '../../components/Image.astro';
+
 const { content } = Astro.props;
+
+function copyRenderOptions( links ) {
+    const assetMap = new Map();
+
+    for ( const asset of links.assets.block ) {
+        assetMap.set( asset.sys.id, asset );
+    }
+
+    return {
+        renderMark: {
+            [MARKS.BOLD]: text => `<strong>${text}</strong>`,
+            [MARKS.ITALIC]: text => `<em>${text}</em>`,
+            [MARKS.UNDERLINE]: text => `<u>${text}</u>`,
+        },
+        renderNode: {
+            [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content)}</p>`,
+            [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
+                const asset = assetMap.get( node.data.target.sys.id );
+
+                const srcsetAvif =
+                    asset.url + '?fm=avif&w=800&q=90 800w, ' +
+                    asset.url + '?fm=avif&w=1200&q=90 1200w, ' +
+                    asset.url + '?fm=avif&w=1600&q=90 1600w, ' +
+                    asset.url + '?fm=avif&q=90 ' + asset.width + 'w';
+                const srcsetWebP =
+                    asset.url + '?fm=webp&w=800&q=90 800w, ' +
+                    asset.url + '?fm=webp&w=1200&q=90 1200w, ' +
+                    asset.url + '?fm=webp&w=1600&q=90 1600w, ' +
+                    asset.url + '?fm=webp&q=90 ' + asset.width + 'w';
+                const srcset =
+                    asset.url + '?w=800&q=90 800w, ' +
+                    asset.url + '?w=1200&q=90 1200w, ' +
+                    asset.url + '?w=1600&q=90 1600w, ' +
+                    asset.url + '?q=90 ' + asset.width + 'w';
+
+                const sizes = '(max-width: 700px) 800px, (max-width: 1024px) 1200px, (max-width: 1600px) 1600px, ' + asset.width + 'px';
+
+                return (
+                    `<figure class="text__figure rounded overflow--hidden">
+                        <picture nopin="nopin">
+                            <source
+                                type="image/avif"
+                                srcset=${ srcsetAvif }
+                                sizes=${ sizes }
+                            />
+                            <source
+                                type="image/webp"
+                                srcset=${ srcsetWebP }
+                                sizes=${ sizes }
+                            />
+                            <img
+                                srcset=${ srcset }
+                                sizes=${ sizes }
+                                src=${ asset.url }
+                                width=${ asset.width }
+                                height=${ asset.height }
+                                alt=${ asset.description }
+                                decoding="async"
+                                loading="lazy"
+                                nopin="nopin"
+                            />
+                        </picture>
+                    </figure>`
+                );
+            },
+            [INLINES.HYPERLINK]: (node, next) => `<a href=${node.data.uri} target="_blank" rel="noopener noreferrer">${next(node.content)}</a>`,
+        },
+        preserveWhitespace: true
+    }
+}
 ---
 <section class="text padding-left--80 padding-right--80 grid--columns text--black">
     <div class="grid--columns__sidebar">
@@ -17,9 +91,7 @@ const { content } = Astro.props;
         }
 
         <div class="grid--sidebar content">
-            <div set:html={ documentToHtmlString( content.copy.json, copyOptions ) } class="grid--columns__content">
-
-            </div>
+            <div set:html={ documentToHtmlString( content.copy.json, copyRenderOptions( content.copy.links ) ) } class="grid--columns__content" />
 
             <div class="grid--columns__sidebar"></div>
         </div>

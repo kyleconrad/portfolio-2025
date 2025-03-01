@@ -170,6 +170,19 @@ async function getCaseStudy( id ) {
 							header
 							copy {
 								json
+								links {
+									assets {
+										block {
+											sys {
+												id
+											}
+											url
+											width
+											height
+											description
+										}
+									}
+								}
 							}
 						}
 						... on ContentStats {
@@ -206,6 +219,31 @@ async function getCaseStudy( id ) {
 	const json = await response.json();
 
 	return await json.data.contentfulCaseStudy;
+}
+
+
+
+// Get single asset
+async function getAsset( id ) {
+	const variables = {
+		id: id
+	};
+
+	const query = `
+		query ($id: String!) {
+			contentfulAsset: asset(id: $id) {
+				url
+				width
+				height
+				description
+			}
+		}
+	`;
+
+	const response = await apiCall( query, variables );
+	const json = await response.json();
+
+	return await json.data.contentfulAsset;
 }
 
 
