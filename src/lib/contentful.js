@@ -162,6 +162,34 @@ async function getCaseStudy( id ) {
 				detail {
 					json
 				}
+				contentBlocksCollection {
+					items {
+						... on ContentStats {
+							__typename
+							subhead
+							stat1
+							stat1Copy {
+								json
+							}
+							stat2
+							stat2Copy {
+								json
+							}
+							stat3
+							stat3Copy {
+								json
+							}
+						}
+						... on ContentQuote {
+							__typename
+							quote {
+								json
+							}
+							name
+							detail
+						}
+					}
+				}
 			}
 		}
 	`;

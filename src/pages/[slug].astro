@@ -45,8 +45,14 @@ const metadataUrl = 'https://kyleconrad.com/' + caseStudy.slug + '/';
     <body>
         <Hero name="true" client={ caseStudy.client } headline={ caseStudy.headline } navigation={ navigation.navigationLinks } />
 
-        <main>
+        <main class="column--content padding-top--80 padding-bottom--80">
             <Lede lede={ caseStudy.lede } link={ caseStudy.link } platform={ caseStudy.platform } role={ caseStudy.role } year={ caseStudy.year } agency={ caseStudy.agency } collaborators={ caseStudy.collaborators } detail={ caseStudy.detail } />
+
+            {
+                caseStudy.contentBlocksCollection.items.map( ( content ) => (
+                    <Content content={ content } />
+                ))
+            }
         </main>
 
         <Footer navigation={ navigation } />

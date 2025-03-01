@@ -55,12 +55,22 @@
     @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 2px, $line-height: 1 );
 }
 
+
+
+.h4,
 .h5 {
     @include Hauss;
-    
-    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
+
     letter-spacing: -0.02em;
     line-height: 1.2;
 
     @include text-crop( $top-adjustment: 1px, $bottom-adjustment: 2px, $line-height: 1.2 );
+}
+
+.h4 {
+    font-size: clamp( 12px, calc( var( --base ) * 2 ), 32px );
+}
+
+.h5 {
+    font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
 }

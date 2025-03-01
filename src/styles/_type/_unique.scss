@@ -1,0 +1,15 @@
+@use '../_variables/' as *;
+
+// Unique styles
+
+//// Stats Number
+.stats__number {
+    @include Hauss;
+
+    font-size: clamp( 72px, calc( var( --base ) * 12 ), 192px );
+
+    letter-spacing: -0.04em;
+    line-height: 0.8;
+
+    @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 2px, $line-height: 0.8 );
+}

@@ -20,6 +20,7 @@
 @use '_structure/padding';
 @use '_structure/margin';
 @use '_structure/grid';
+@use '_structure/column';
 @use '_structure/sticky';
 
 
@@ -31,6 +32,7 @@
 @use '_type/nav';
 @use '_type/links';
 @use '_type/lists';
+@use '_type/unique';
 
 
 
@@ -45,6 +47,7 @@
 
 // Content Blocks
 @use '_blocks/_content/lede';
+@use '_blocks/_content/stats';
 
 
 

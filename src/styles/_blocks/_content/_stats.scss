@@ -1,0 +1,23 @@
+// Stats Content Block
+
+.stats__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    gap: calc( var( --base ) * 4 );
+}
+
+.stats__list__stat {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    align-items: center;
+
+    gap: calc( var( --base ) * 1.5 );   
+}

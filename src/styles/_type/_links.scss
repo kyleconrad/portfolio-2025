@@ -43,6 +43,7 @@
 
         font-size: clamp( 18px, calc( var( --base ) * 3 ), 48px );
         letter-spacing: -0.02em;
+        line-height: 1;
 
         padding-bottom: var( --base );
 
@@ -65,10 +66,12 @@
         &:hover,
         &:active,
         &:focus {
+            color: var( --accent );
+            
             border-color: var( --accent );
 
 
-            
+
             &:after {
                 color: var( --accent );
             }

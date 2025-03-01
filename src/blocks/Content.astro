@@ -1,0 +1,13 @@
+---
+import Text from '../blocks/content/Text.astro';
+import Stats from '../blocks/content/Stats.astro';
+import Quote from '../blocks/content/Quote.astro';
+import SingleColumnImage from '../blocks/content/SingleColumnImage.astro';
+import DoubleColumnImage from '../blocks/content/DoubleColumnImage.astro';
+import ImageSlider from '../blocks/content/ImageSlider.astro';
+import Video from '../blocks/content/Video.astro';
+
+const { content } = Astro.props;
+---
+{ ( content.__typename === 'ContentStats' ) && <Stats content={ content } /> }
+{ ( content.__typename === 'ContentQuote' ) && <Quote content={ content } /> }
