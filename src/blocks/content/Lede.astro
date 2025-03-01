@@ -1,0 +1,52 @@
+---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { headlineOptions, copyOptions, listOptions } from "../../lib/contentful";
+
+const { lede, link, platform, role, year, agency, collaborators, detail } = Astro.props;
+---
+<section class="lede padding--80 grid--columns text--black">
+    <div class="grid--columns__sidebar lede__details subhead">
+        <div class="lede__details__row">
+            <span class="text--gray">Platform</span>
+            <span class="text--black">{ platform }</span>
+        </div>
+
+        <div class="lede__details__row">
+            <span class="text--gray">Role</span>
+            <span class="text--black">{ role }</span>
+        </div>
+
+        <div class="lede__details__row">
+            <span class="text--gray">Year</span>
+            <span class="text--black">{ year }</span>
+        </div>
+
+        { ( agency ) &&
+            <div class="lede__details__row">
+                <span class="text--gray">Agency</span>
+                <span class="text--black" set:html={ documentToHtmlString( agency.json, listOptions ) } />
+            </div>
+        }
+
+        { ( collaborators ) &&
+            <div class="lede__details__row">
+                <span class="text--gray">Collaborators</span>
+                <span class="text--black" set:html={ documentToHtmlString( collaborators.json, listOptions ) } />
+            </div>
+        }
+
+        { ( detail ) &&
+            <div class="colophon text--gray">
+                <p set:html={ documentToHtmlString( detail.json, listOptions ) } />
+            </div>
+        }
+    </div>
+
+    <div class="grid--columns__column lede__content">
+        <p set:html={ documentToHtmlString( lede.json, headlineOptions ) } class="h2 h2--lede" />
+
+        { ( link ) &&
+            <div set:html={ documentToHtmlString( link.json, listOptions ) } class="lede--link" />
+        }
+    </div>
+</section>

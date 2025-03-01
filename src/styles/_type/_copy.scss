@@ -33,6 +33,7 @@ p {
         &:active,
         &:focus {
             text-decoration: underline;
+            text-decoration-color: var( --light );
         }
     }
 }

@@ -1,0 +1,29 @@
+// Lede Content Block
+
+.lede__details {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: calc( var( --base ) * 1.5 );
+}
+
+.lede__details__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    gap: var( --base );
+}
+
+
+
+.lede__content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: calc( var( --base ) * 4 );
+}

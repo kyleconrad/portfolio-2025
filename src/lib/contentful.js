@@ -147,9 +147,21 @@ async function getCaseStudy( id ) {
 				lede {
 					json
 				}
+				link {
+					json
+				}
 				platform
 				role
 				year
+				agency {
+					json
+				}
+				collaborators {
+					json
+				}
+				detail {
+					json
+				}
 			}
 		}
 	`;

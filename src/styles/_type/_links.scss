@@ -32,3 +32,46 @@
         }
     }
 }
+
+
+
+.lede--link {
+    a {
+        display: inline-block;
+
+        @include Hauss;
+
+        font-size: clamp( 18px, calc( var( --base ) * 3 ), 48px );
+        letter-spacing: -0.02em;
+
+        padding-bottom: var( --base );
+
+        border-bottom: 1px solid var( --light );
+
+
+
+        &:after {
+            display: inline;
+    
+            @include Inter( regular );
+    
+            color: var( --light );
+    
+            content: '\00a0\00a0↗';
+        }
+
+
+
+        &:hover,
+        &:active,
+        &:focus {
+            border-color: var( --accent );
+
+
+            
+            &:after {
+                color: var( --accent );
+            }
+        }
+    }
+}

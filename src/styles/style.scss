@@ -43,6 +43,11 @@
 
 
 
+// Content Blocks
+@use '_blocks/_content/lede';
+
+
+
 // Components
 @use '_components/navigation';
 @use '_components/card';

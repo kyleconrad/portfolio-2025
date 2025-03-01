@@ -4,7 +4,10 @@ import { contentfulClient, contentfulGraphQLClient } from "../lib/contentful";
 import Head from '../elements/Head.astro';
 
 import Hero from '../blocks/Hero.astro';
+import Content from '../blocks/Content.astro';
 import Footer from '../blocks/Footer.astro';
+
+import Lede from '../blocks/content/Lede.astro';
 
 export async function getStaticPaths() {
     const entries = await contentfulClient.getEntries({
@@ -43,7 +46,7 @@ const metadataUrl = 'https://kyleconrad.com/' + caseStudy.slug + '/';
         <Hero name="true" client={ caseStudy.client } headline={ caseStudy.headline } navigation={ navigation.navigationLinks } />
 
         <main>
-
+            <Lede lede={ caseStudy.lede } link={ caseStudy.link } platform={ caseStudy.platform } role={ caseStudy.role } year={ caseStudy.year } agency={ caseStudy.agency } collaborators={ caseStudy.collaborators } detail={ caseStudy.detail } />
         </main>
 
         <Footer navigation={ navigation } />

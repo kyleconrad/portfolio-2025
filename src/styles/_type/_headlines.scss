@@ -39,6 +39,14 @@
     font-size: clamp( 24px, calc( var( --base ) * 5 ), 64px );
 
     @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 2px, $line-height: 1.1 );
+
+
+
+    &--lede {
+        line-height: 1.2;
+
+        @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 2px, $line-height: 1.2 );
+    }
 }
 
 .h3 {
