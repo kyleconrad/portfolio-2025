@@ -209,6 +209,18 @@ async function getCaseStudy( id ) {
 							name
 							detail
 						}
+						... on ContentSingleColumnImage {
+							__typename
+							image {
+								url
+								width
+								height
+								description
+							}
+							caption {
+								json
+							}
+						}
 					}
 				}
 			}
@@ -258,6 +270,7 @@ export const headlineOptions = {
 	},
 	renderNode: {
 		[BLOCKS.PARAGRAPH]: (node, next) => `${next(node.content)}`,
+		[INLINES.HYPERLINK]: (node, next) => `<a href=${node.data.uri} target="_blank" rel="noopener noreferrer">${next(node.content)}</a>`,
 	}	
 }
 

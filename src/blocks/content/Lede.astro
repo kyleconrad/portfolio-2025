@@ -1,6 +1,6 @@
 ---
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { headlineOptions, copyOptions, listOptions } from "../../lib/contentful";
+import { headlineOptions } from "../../lib/contentful";
 
 const { lede, link, platform, role, year, agency, collaborators, detail } = Astro.props;
 ---
@@ -24,20 +24,20 @@ const { lede, link, platform, role, year, agency, collaborators, detail } = Astr
         { ( agency ) &&
             <div class="lede__details__row">
                 <span class="text--gray">Agency</span>
-                <span class="text--black" set:html={ documentToHtmlString( agency.json, listOptions ) } />
+                <span class="text--black" set:html={ documentToHtmlString( agency.json, headlineOptions ) } />
             </div>
         }
 
         { ( collaborators ) &&
             <div class="lede__details__row">
                 <span class="text--gray">Collaborators</span>
-                <span class="text--black" set:html={ documentToHtmlString( collaborators.json, listOptions ) } />
+                <span class="text--black" set:html={ documentToHtmlString( collaborators.json, headlineOptions ) } />
             </div>
         }
 
         { ( detail ) &&
             <div class="colophon text--gray">
-                <p set:html={ documentToHtmlString( detail.json, listOptions ) } />
+                <p set:html={ documentToHtmlString( detail.json, headlineOptions ) } />
             </div>
         }
     </div>
@@ -46,7 +46,7 @@ const { lede, link, platform, role, year, agency, collaborators, detail } = Astr
         <p set:html={ documentToHtmlString( lede.json, headlineOptions ) } class="h2 h2--lede" />
 
         { ( link ) &&
-            <div set:html={ documentToHtmlString( link.json, listOptions ) } class="lede--link" />
+            <div set:html={ documentToHtmlString( link.json, headlineOptions ) } class="lede--link" />
         }
     </div>
 </section>

@@ -2,7 +2,8 @@
 
 // Copy
 
-p {
+p,
+figcaption {
     @include Inter( regular );
 
     line-height: 1.5;
@@ -55,7 +56,8 @@ p.small {
 }
 
 .colophon {
-    p {
+    p,
+    figcaption {
         font-size: clamp( 8px, calc( var( --base ) * 1.25 ), 20px );
     }
 }
