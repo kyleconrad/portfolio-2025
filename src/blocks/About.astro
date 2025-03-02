@@ -6,7 +6,7 @@ const { headline, copy, subhead1, list1, subhead2, list2 } = Astro.props;
 
 const headlineRender = documentToHtmlString( headline.json, headlineOptions ).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
 ---
-<section class="about padding--80 grid--columns text--black">
+<section class="about padding--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns text--black">
     <div class="grid--columns__sidebar">
         <span class="subhead sticky">About</span>
     </div>

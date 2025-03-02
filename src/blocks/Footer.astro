@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation.astro';
 
 const { navigation } = Astro.props;
 ---
-<footer class="footer padding--80">
+<footer class="footer padding--80 mobile-padding-left--40 mobile-padding-right--40">
     <Navigation name="true" navigation={ navigation.navigationLinks }/>
 
     <div set:html={ documentToHtmlString( navigation.footerColophon.json, copyOptions ) } class="colophon text--gray" />

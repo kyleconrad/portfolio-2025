@@ -10,7 +10,7 @@ const link = '/' + item.slug + '/';
 ---
 <li style={ `--accent: #${ item.accentColor };` }>
     <a href={ link } class="cards__card grid--card">
-        <div class="grid--card__headline">
+        <div class="grid--card__headline mobile-padding-top--8">
             <h2 class="h2 link--casestudy link--casestudy--large"><strong>{ item.client }:</strong> <span set:html={ documentToHtmlString( item.headline.json, headlineOptions ) } /></h2>
         </div>
 

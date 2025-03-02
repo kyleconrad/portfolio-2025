@@ -1,5 +1,9 @@
+@use '../_variables/' as *;
+
 // Padding
 $sides: top, left, right, bottom;
+
+
 
 @for $i from 0 through 20 {
     .padding--#{ 8 * $i * 0.5 } {
@@ -10,5 +14,21 @@ $sides: top, left, right, bottom;
         .padding-#{ $side }--#{ 8 * $i * 0.5 } {
             padding-#{ $side }: calc( var( --base ) * #{ $i * 0.5 } );
         }
+    }
+}
+
+
+
+@include breakpoint( mobile ) {
+    @for $i from 0 through 20 {
+        .mobile-padding--#{ 8 * $i * 0.5 } {
+            padding: calc( var( --base ) * #{ $i * 0.5 } );
+        }
+
+        @each $side in $sides {
+            .mobile-padding-#{ $side }--#{ 8 * $i * 0.5 } {
+                padding-#{ $side }: calc( var( --base ) * #{ $i * 0.5 } );
+            }
+        }       
     }
 }

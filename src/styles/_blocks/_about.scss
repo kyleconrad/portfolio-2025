@@ -1,12 +1,23 @@
+@use '../_variables/' as *;
+
 // About
 
 .about {
     .grid--columns__sidebar {
         display: flex;
         flex-direction: column;
-        
+
         align-items: stretch;
 
         gap: calc( var( --base ) * 3 );
+
+
+
+        @include breakpoint( mobile ) {
+            ul {
+                column-count: 2;
+                column-gap: calc( var( --base ) * 3 );
+            }
+        }
     }
 }

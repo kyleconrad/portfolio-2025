@@ -117,6 +117,17 @@ $sidebarWidth: 20%;
     @include breakpoint( portrait ) {
         grid-template-columns: 1fr calc( $sidebarWidth * 0.75 );
     }
+
+    @include breakpoint( mobile ) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+
+        gap: calc( var( --base ) * 5 ); 
+
+        grid-template-areas: 
+            "content"
+            "sidebar"; 
+    }
 }
 
 
@@ -151,9 +162,27 @@ $sidebarWidth: 20%;
         @include breakpoint( portrait ) {
             padding-right: calc( var( --base ) * 6 );
         }
+
+        @include breakpoint( mobile ) {
+            padding-right: 0;
+        }
     }
     .grid--card__thumbnail {
         grid-area: thumbnail;
+    }
+
+
+
+    @include breakpoint( mobile ) {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto auto;
+
+        gap: calc( var( --base ) * 2 );
+
+        grid-template-areas: 
+            "thumbnail"
+            "headline"
+            "detail";
     }
 }
 

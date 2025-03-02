@@ -43,7 +43,7 @@
 }
 
 .h1 {
-    font-size: clamp( 40px, calc( var( --base ) * 7 ), 84px );
+    font-size: clamp( 32px, calc( var( --base ) * 7 ), 84px );
 }
 
 .h2 {
@@ -61,7 +61,7 @@
 }
 
 .h3 {
-    font-size: clamp( 16px, calc( var( --base ) * 3 ), 48px );
+    font-size: clamp( 20px, calc( var( --base ) * 3 ), 48px );
 
     @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 2px, $line-height: 1 );
 }
