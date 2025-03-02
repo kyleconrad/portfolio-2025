@@ -239,6 +239,27 @@ async function getCaseStudy( id ) {
 								json
 							}
 						}
+						... on ContentVideo {
+							__typename
+							videoWebM {
+								url
+							}
+							videoOgg {
+								url
+							}
+							videoMp4 {
+								url
+							}
+							videoPoster {
+								url
+							}
+							caption {
+								json
+							}
+							audioBoolean
+							loop
+							showBrowserChrome
+						}
 					}
 				}
 			}

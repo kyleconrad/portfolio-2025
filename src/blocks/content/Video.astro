@@ -1,0 +1,19 @@
+---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { headlineOptions } from "../../lib/contentful";
+
+import VideoPlayer from '../../components/Video.astro';
+
+const { content } = Astro.props;
+---
+<figure class="video padding-left--80 padding-right--80 grid--columns">
+    <div class="grid--columns__sidebar colophon text--gray">
+        { ( content.caption ) &&
+            <figcaption set:html={ documentToHtmlString( content.caption.json, headlineOptions ) } class="sticky" />
+        }
+    </div>
+
+    <div class="grid--columns__column rounded overflow--hidden">
+        <VideoPlayer content={ content } />
+    </div>
+</figure>

@@ -1,0 +1,236 @@
+// Video Player component styles
+$controlHeight: 6px;
+
+
+
+.video__container {
+    display: block;
+    position: relative;
+}
+
+
+
+.video__control {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    gap: calc( var( --base ) * 3 );
+
+    padding-left: calc( var( --base ) * 3 );
+    padding-right: calc( var( --base ) * 3 );
+    padding-bottom: calc( var( --base ) * 3 );
+    padding-top: calc( var( --base ) * 4 );
+
+    background:
+        linear-gradient(
+            to top,
+            rgb( from var( --black ) r g b / 25% ) 0%,
+            rgb( from var( --black ) r g b / 10% ) 50%,
+            rgb( from var( --black ) r g b / 5% ) 65%,
+            rgb( from var( --black ) r g b / 3.5% ) 75.5%,
+            rgb( from var( --black ) r g b / 2% ) 82.85%,
+            rgb( from var( --black ) r g b / 1% ) 88%,
+            rgb( from var( --black ) r g b / 0% ) 100%
+        );
+
+    z-index: 2;
+
+    opacity: 0.5;
+
+    transition: var( --transition );
+
+
+
+    &--audio {
+        padding-bottom: calc( var( --base ) * 2 );
+    }
+}
+
+.video__container:hover {
+    .video__control {
+        background:
+            linear-gradient(
+                to top,
+                rgb( from var( --black ) r g b / 75% ) 0%,
+                rgb( from var( --black ) r g b / 30% ) 50%,
+                rgb( from var( --black ) r g b / 15% ) 65%,
+                rgb( from var( --black ) r g b / 7.5% ) 75.5%,
+                rgb( from var( --black ) r g b / 3.5% ) 82.85%,
+                rgb( from var( --black ) r g b / 2% ) 88%,
+                rgb( from var( --black ) r g b / 0% ) 100%
+            );
+
+        opacity: 1;
+    }
+}
+
+
+
+.video__control-container {
+    display: block;
+    position: relative;
+
+    height: $controlHeight;
+
+    flex-grow: 1;
+
+    background: rgb( from var( --white ) r g b / 25% );
+}
+
+.video__control__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: var( --progress );
+
+    background: var( --white );
+
+    pointer-events: none;
+}
+
+.video__control__input {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    right: 0;
+
+    cursor: pointer;
+
+
+
+    &::-webkit-slider-runnable-track {
+        height: calc( $controlHeight * 4 );
+
+        background: transparent;
+
+        transform: translateY( -50% );
+    }
+
+    &::-moz-range-track {
+        height: calc( $controlHeight * 4 );
+
+        background: transparent;
+
+        transform: translateY( -50% );
+    }
+
+
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+
+        height: 40px;
+        width: 40px;
+
+        margin-top: -20px;
+
+        background: transparent;
+
+        opacity: 0;
+    }
+
+    &::-moz-range-thumb {
+        appearance: none;
+        border: none;
+        border-radius: 0;
+
+        height: 40px;
+        width: 20px;
+
+        background: transparent;
+
+        opacity: 0;
+    }
+}
+
+
+
+.video__audio__control {
+    display: block;
+    width: calc( #{ $controlHeight } * 4 );
+
+    cursor: pointer;
+
+
+
+    &.mute {
+        .mute {
+            display: block;
+        }
+
+        .audible {
+            display: none;
+        }
+    }
+
+    &.audible {
+        .mute {
+            display: none;
+        }
+
+        .audible {
+            display: block;
+        }
+    }
+}
+
+
+
+.video__video {
+    z-index: 1;
+}
+
+
+
+@media ( hover: hover ) {
+    .video__video {
+        &.playing {
+            cursor:
+                url( 'data:image/svg+xml;utf8,<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><rect width="48" height="48" rx="24" fill="%23FEFEFE"/><rect x="15" y="15" width="6" height="18" fill="%23060606"/><rect x="27" y="15" width="6" height="18" fill="%23060606"/></svg>' ) 32 32,
+                pointer;
+        }
+
+        &.paused {
+            cursor:
+                url( 'data:image/svg+xml;utf8,<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><rect width="48" height="48" rx="24" fill="%23FEFEFE"/><path d="M33 24L19 33L19 15L33 24Z" fill="%23060606"/></svg>' ) 32 32,
+                pointer;
+
+        }
+    }
+}
+
+
+
+@media ( hover: none ) {
+    .video__container:has( video.paused ) {
+        &:after {
+            display: none;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            width: 60px;
+            height: 60px;
+
+            background: url( 'data:image/svg+xml;utf8,<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><rect width="48" height="48" rx="24" fill="%23FEFEFE"/><path d="M33 24L19 33L19 15L33 24Z" fill="%23060606"/></svg>' ) no-repeat center center / 100% 100%;
+
+            transform: translate( -50%, -50% );
+
+            z-index: 5;
+
+            content: '';
+        }
+    }
+}

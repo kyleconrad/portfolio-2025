@@ -31,9 +31,15 @@
     fill: var( --accent );
 }
 
+.fill--white {
+    fill: var( --white );
+}
+
 .fill--none {
     fill: none;
 }
+
+
 
 .stroke--white {
     stroke: var( --white );
