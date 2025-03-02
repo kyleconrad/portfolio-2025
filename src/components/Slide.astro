@@ -1,40 +1,26 @@
 ---
 // @ts-nocheck
 
+import { imageResponsive } from "../lib/contentful";
+
 const { image } = Astro.props;
 
-const srcsetAvif =
-    image.url + '?fm=avif&w=800&q=90 800w, ' +
-    image.url + '?fm=avif&w=1200&q=90 1200w, ' +
-    image.url + '?fm=avif&w=1600&q=90 1600w, ' +
-    image.url + '?fm=avif&q=90 ' + image.width + 'w';
-const srcsetWebP =
-    image.url + '?fm=webp&w=800&q=90 800w, ' +
-    image.url + '?fm=webp&w=1200&q=90 1200w, ' +
-    image.url + '?fm=webp&w=1600&q=90 1600w, ' +
-    image.url + '?fm=webp&q=90 ' + image.width + 'w';
-const srcset =
-    image.url + '?w=800&q=90 800w, ' +
-    image.url + '?w=1200&q=90 1200w, ' +
-    image.url + '?w=1600&q=90 1600w, ' +
-    image.url + '?q=90 ' + image.width + 'w';
-
-const sizes = '(max-width: 700px) 800px, (max-width: 1024px) 1200px, (max-width: 1600px) 1600px, ' + image.width + 'px';
+const imageSrcset = imageResponsive( image.url, image.width );
 ---
 <picture class="height rounded overflow--hidden margin-right--24" nopin="nopin">
     <source
         type="image/avif"
-        data-flickity-lazyload-srcset={ srcsetAvif }
-        sizes={ sizes }
+        data-flickity-lazyload-srcset={ imageSrcset.avif }
+        sizes={ imageSrcset.sizes }
     />
     <source
         type="image/webp"
-        data-flickity-lazyload-srcset={ srcsetWebP }
-        sizes={ sizes }
+        data-flickity-lazyload-srcset={ imageSrcset.webp }
+        sizes={ imageSrcset.sizes }
     />
     <img
-        data-flickity-lazyload-srcset={ srcset }
-        sizes={ sizes }
+        data-flickity-lazyload-srcset={ imageSrcset.srcset }
+        sizes={ imageSrcset.sizes }
         data-flickity-lazyload-src={ image.url }
         width={ image.width }
         height={ image.height }

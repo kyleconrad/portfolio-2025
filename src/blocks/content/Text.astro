@@ -2,9 +2,7 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 
-import { copyOptions } from "../../lib/contentful";
-
-import Image from '../../components/Image.astro';
+import { imageResponsive } from "../../lib/contentful";
 
 const { content } = Astro.props;
 
@@ -26,40 +24,24 @@ function copyRenderOptions( links ) {
             [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
                 const asset = assetMap.get( node.data.target.sys.id );
 
-                const srcsetAvif =
-                    asset.url + '?fm=avif&w=800&q=90 800w, ' +
-                    asset.url + '?fm=avif&w=1200&q=90 1200w, ' +
-                    asset.url + '?fm=avif&w=1600&q=90 1600w, ' +
-                    asset.url + '?fm=avif&q=90 ' + asset.width + 'w';
-                const srcsetWebP =
-                    asset.url + '?fm=webp&w=800&q=90 800w, ' +
-                    asset.url + '?fm=webp&w=1200&q=90 1200w, ' +
-                    asset.url + '?fm=webp&w=1600&q=90 1600w, ' +
-                    asset.url + '?fm=webp&q=90 ' + asset.width + 'w';
-                const srcset =
-                    asset.url + '?w=800&q=90 800w, ' +
-                    asset.url + '?w=1200&q=90 1200w, ' +
-                    asset.url + '?w=1600&q=90 1600w, ' +
-                    asset.url + '?q=90 ' + asset.width + 'w';
-
-                const sizes = '(max-width: 700px) 800px, (max-width: 1024px) 1200px, (max-width: 1600px) 1600px, ' + asset.width + 'px';
+                const imageSrcset = imageResponsive( asset.url, asset.width );
 
                 return (
                     `<figure class="text__figure rounded overflow--hidden">
                         <picture nopin="nopin">
                             <source
                                 type="image/avif"
-                                srcset=${ srcsetAvif }
-                                sizes=${ sizes }
+                                srcset=${ imageSrcset.avif }
+                                sizes=${ imageSrcset.sizes }
                             />
                             <source
                                 type="image/webp"
-                                srcset=${ srcsetWebP }
-                                sizes=${ sizes }
+                                srcset=${ imageSrcset.webp }
+                                sizes=${ imageSrcset.sizes }
                             />
                             <img
-                                srcset=${ srcset }
-                                sizes=${ sizes }
+                                srcset=${ imageSrcset.srcset }
+                                sizes=${ imageSrcset.sizes }
                                 src=${ asset.url }
                                 width=${ asset.width }
                                 height=${ asset.height }

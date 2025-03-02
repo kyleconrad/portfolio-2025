@@ -132,6 +132,8 @@
 
         background: transparent;
 
+        opacity: 0;
+
         transform: translateY( -50% );
     }
 
@@ -139,6 +141,8 @@
         height: calc( var( --controlHeight ) * 4 );
 
         background: transparent;
+
+        opacity: 0;
 
         transform: translateY( -50% );
     }
