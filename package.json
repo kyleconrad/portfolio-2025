@@ -30,6 +30,7 @@
     "astro": "^5.4.0",
     "astro-compressor": "^1.0.0",
     "contentful": "^11.5.2",
+    "flickity": "^3.0.0",
     "sass": "^1.78.0"
   },
   "devDependencies": {

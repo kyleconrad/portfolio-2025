@@ -11,4 +11,11 @@ video {
 
     margin: 0;
     padding: 0;
+
+
+
+    &.height {
+        height: 100%;
+        width: auto;
+    }
 }

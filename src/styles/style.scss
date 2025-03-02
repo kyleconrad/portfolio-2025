@@ -50,12 +50,14 @@
 @use '_blocks/_content/text';
 @use '_blocks/_content/stats';
 @use '_blocks/_content/doublecolumn';
+@use '_blocks/_content/imageslider';
 
 
 
 // Components
 @use '_components/navigation';
 @use '_components/card';
+@use '_components/browser';
 @use '_components/video';
 
 

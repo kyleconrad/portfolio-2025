@@ -1,0 +1,50 @@
+// Image Slider
+
+.slider__slider {
+    width: 100%;
+
+
+
+    //// Flickity
+    &.flickity-enabled {
+        position: relative;
+    }
+
+    .flickity-viewport {
+        position: relative;
+
+        height: clamp( 400px, 70vh, 700px );
+
+        touch-action: pan-y;
+    }
+
+    .flickity-slider {
+        position: absolute;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .flickity-cell {
+        position: absolute;
+        left: 0;
+    }
+
+
+
+    //// Dragging
+    &.flickity-enabled.is-draggable {
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+
+    &.flickity-enabled.is-draggable .flickity-viewport {
+        cursor: move;
+        cursor: grab;
+    }
+
+    &.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+        cursor: grabbing;
+    }
+}

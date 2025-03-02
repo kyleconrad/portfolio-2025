@@ -239,6 +239,17 @@ async function getCaseStudy( id ) {
 								json
 							}
 						}
+						... on ContentImageSlider {
+							__typename
+							imagesCollection {
+								items {
+									url
+									width
+									height
+									description
+								}
+							}
+						}
 						... on ContentVideo {
 							__typename
 							videoWebM {

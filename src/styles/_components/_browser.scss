@@ -1,0 +1,14 @@
+// Browser chrome
+
+.browser {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    justify-content: space-between;
+
+    height: calc( var( --base ) * 4.5 );
+    min-height: 24px;
+
+    background: rgb( from #202124 r g b / 90% );
+}

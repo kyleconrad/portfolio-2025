@@ -1,0 +1,44 @@
+---
+import Slide from '../../components/Slide.astro';
+
+const { content } = Astro.props;
+---
+<slider-section class="slider padding-left--80 padding-right--80 grid--columns overflow--hidden">
+    <div class="grid--columns__sidebar"></div>
+
+    <div class="grid--columns__column">
+        <div class="slider__slider">
+            {
+                content.imagesCollection.items.map( ( image ) => (
+                    <Slide image={ image } />
+                ))
+            }
+        </div>
+    </div>
+</slider-section>
+
+<script>
+    import Flickity from 'flickity';
+
+    class SliderSection extends HTMLElement {
+        constructor() {
+            super();
+
+            const   slider = this.querySelector<HTMLVideoElement>( '.slider__slider' );
+
+            const   flickity = new Flickity( slider, {
+                cellAlign: 'left',
+                cellSelector: 'picture',
+                setGallerySize: false,
+                contain: true,
+                prevNextButtons: false,
+                pageDots: false,
+                draggable: true,
+                accessibility: false,
+                lazyLoad: 3
+            });
+        }
+    }
+
+    customElements.define( 'slider-section', SliderSection );
+</script>

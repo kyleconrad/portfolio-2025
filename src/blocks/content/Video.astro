@@ -2,7 +2,8 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { headlineOptions } from "../../lib/contentful";
 
-import VideoPlayer from '../../components/Video.astro';
+import Browser from '../../components/Browser.astro';
+import VideoPlayer from '../../components/VideoPlayer.astro';
 
 const { content } = Astro.props;
 ---
@@ -14,6 +15,9 @@ const { content } = Astro.props;
     </div>
 
     <div class="grid--columns__column rounded overflow--hidden">
+        { ( content.showBrowserChrome) && 
+            <Browser />
+        }
         <VideoPlayer content={ content } />
     </div>
 </figure>
