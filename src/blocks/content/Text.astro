@@ -72,7 +72,7 @@ function copyRenderOptions( links ) {
             <h2 class="h4">{ content.header }</h2>
         }
 
-        <div class="grid--sidebar grid--sidebar--no-sidebar content">
+        <div class="grid--sidebar content">
             <div set:html={ documentToHtmlString( content.copy.json, copyRenderOptions( content.copy.links ) ) } class="grid--columns__content" />
         </div>
     </div>

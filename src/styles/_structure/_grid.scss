@@ -49,8 +49,11 @@ $sidebarWidth: 20%;
             "column"; 
 
         
-            
-        &--with-caption {
+
+        &.quote,
+        &.singlecolumn,
+        &.doublecolumn,
+        &.video {
             @include breakpoint( portrait ) {
                 grid-template-areas: 
                     "column"
@@ -67,7 +70,7 @@ $sidebarWidth: 20%;
 
 
 
-        &--keep-columns {
+        &.lede {
             grid-template-columns: 1fr calc( $sidebarWidth * 1.25 ); 
 
             grid-template-areas: 
@@ -145,7 +148,7 @@ $sidebarWidth: 20%;
 
         
         
-        &--no-sidebar {
+        .text & {
             gap: 0;
         }
     }
