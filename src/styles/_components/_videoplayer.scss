@@ -1,9 +1,10 @@
 // Video Player component styles
-$controlHeight: 6px;
-
-
 
 .video__container {
+    --controlHeight: 6px;
+
+
+
     display: block;
     position: relative;
 
@@ -90,25 +91,13 @@ $controlHeight: 6px;
     }
 }
 
-.video__container:hover {
-    .video__control {
-        opacity: 1;
-
-
-
-        &:after {
-            opacity: 0.85;
-        }
-    }
-}
-
 
 
 .video__control-container {
     display: block;
     position: relative;
 
-    height: $controlHeight;
+    height: var( --controlHeight );
 
     flex-grow: 1;
 
@@ -139,7 +128,7 @@ $controlHeight: 6px;
 
 
     &::-webkit-slider-runnable-track {
-        height: calc( $controlHeight * 4 );
+        height: calc( var( --controlHeight ) * 4 );
 
         background: transparent;
 
@@ -147,7 +136,7 @@ $controlHeight: 6px;
     }
 
     &::-moz-range-track {
-        height: calc( $controlHeight * 4 );
+        height: calc( var( --controlHeight ) * 4 );
 
         background: transparent;
 
@@ -188,7 +177,7 @@ $controlHeight: 6px;
 
 .video__audio__control {
     display: block;
-    width: calc( #{ $controlHeight } * 4 );
+    width: calc( var( --controlHeight ) * 4 );
 
     cursor: pointer;
 
@@ -224,6 +213,20 @@ $controlHeight: 6px;
 
 
 @media ( hover: hover ) {
+    .video__container:hover {
+        .video__control {
+            opacity: 1;
+    
+    
+    
+            &:after {
+                opacity: 0.85;
+            }
+        }
+    }
+
+
+
     .video__video {
         &.playing {
             cursor:
@@ -243,6 +246,18 @@ $controlHeight: 6px;
 
 
 @media ( hover: none ) {
+    .video__control {
+        opacity: 0.75;
+
+
+
+        &:after {
+            opacity: 0.5;
+        }
+    }
+
+
+
     .video__container:has( video.paused ) {
         &:after {
             display: none;
@@ -261,6 +276,12 @@ $controlHeight: 6px;
             z-index: 5;
 
             content: '';
+        }
+
+
+
+        .video__control {
+            opacity: 0;
         }
 
 
