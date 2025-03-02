@@ -3,17 +3,20 @@
 // Subheads
 
 .subhead {
+    display: block;
+
     @include Inter( regular );
 
     font-size: clamp( 10px, calc( var( --base ) * 1.5 ), 24px );
     letter-spacing: -0.02em;
+    line-height: 1.3;
 
     color: var( --gray );
 
 
 
     &--large {
-        font-size: clamp( 12px, calc( var( --base ) * 1.75 ), 28px );
+        font-size: clamp( 10px, calc( var( --base ) * 1.75 ), 28px );
         line-height: 1.3;
     }
 

@@ -1,3 +1,5 @@
+@use '../_variables/' as *;
+
 // Hero
 
 .hero {
@@ -5,6 +7,12 @@
         width: 75%;
 
         margin-top: calc( var( --base ) * 32 );
+
+
+
+        @include breakpoint( landscape ) {
+            width: 85%;
+        }
     }
 }
 

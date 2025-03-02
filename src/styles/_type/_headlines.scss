@@ -4,6 +4,17 @@
 
 .h1,
 .h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    display: block;
+}
+
+
+
+.h1,
+.h2,
 .h3 {
     @include LockSerif;
 
@@ -65,7 +76,7 @@
     letter-spacing: -0.02em;
     line-height: 1.2;
 
-    @include text-crop( $top-adjustment: 1px, $bottom-adjustment: 2px, $line-height: 1.2 );
+    @include text-crop( $top-adjustment: 2px, $bottom-adjustment: 2px, $line-height: 1.2 );
 }
 
 .h4 {

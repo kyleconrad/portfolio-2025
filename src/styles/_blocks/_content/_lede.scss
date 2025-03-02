@@ -1,3 +1,5 @@
+@use '../../_variables/' as *;
+
 // Lede Content Block
 
 .lede__details {
@@ -6,6 +8,12 @@
     align-items: stretch;
 
     gap: calc( var( --base ) * 1.5 );
+
+
+
+    @include breakpoint( landscape ) {
+        gap: calc( var( --base ) * 0.75 );
+    }
 }
 
 .lede__details__row {
@@ -26,4 +34,10 @@
     align-items: stretch;
 
     gap: calc( var( --base ) * 4 );
+
+
+
+    @include breakpoint( portrait ) {
+        gap: calc( var( --base ) * 5 );
+    }
 }

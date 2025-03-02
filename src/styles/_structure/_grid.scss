@@ -1,4 +1,10 @@
+@use '../_variables/' as *;
+
 // Grids
+
+$sidebarWidth: 20%;
+
+
 
 //// Main 2 column grid
 .grid--columns {
@@ -6,7 +12,7 @@
 
     grid-auto-flow: column; 
 
-    grid-template-columns: 20% 1fr; 
+    grid-template-columns: $sidebarWidth 1fr; 
     grid-template-rows: 1fr; 
 
     gap: 0; 
@@ -20,10 +26,64 @@
         grid-area: sidebar;
 
         padding-right: calc( var( --base ) * 5 );
+
+
+
+        @include breakpoint( portrait ) {
+            padding-right: 0;
+            padding-bottom: calc( var( --base ) * 3 );
+        }
     }
     .grid--columns__column {
         grid-area: column;
     }
+
+
+
+    @include breakpoint( portrait ) {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto;
+
+        grid-template-areas: 
+            "sidebar"
+            "column"; 
+
+        
+            
+        &--with-caption {
+            @include breakpoint( portrait ) {
+                grid-template-areas: 
+                    "column"
+                    "sidebar"; 
+    
+    
+                
+                .grid--columns__sidebar {
+                    padding-bottom: 0;
+                    padding-top: calc( var( --base ) * 3 );
+                }
+            }
+        }
+
+
+
+        &--keep-columns {
+            grid-template-columns: 1fr calc( $sidebarWidth * 1.25 ); 
+            grid-template-areas: 
+                "column sidebar"; 
+            
+            
+            
+            .grid--columns__sidebar {
+                padding-left: calc( var( --base ) * 6 );
+                padding-bottom: 0;
+            }
+        }
+    }
+
+
+
+
 }
 
 
@@ -34,7 +94,7 @@
 
     grid-auto-flow: column; 
 
-    grid-template-columns: 1fr 20%;
+    grid-template-columns: 1fr $sidebarWidth;
     grid-template-rows: 1fr; 
 
     gap: calc( var( --base ) * 10 ); 
@@ -50,6 +110,12 @@
 
     .grid--columns__sidebar {
         grid-area: sidebar;
+    }
+
+
+
+    @include breakpoint( portrait ) {
+        grid-template-columns: 1fr calc( $sidebarWidth * 0.75 );
     }
 }
 
@@ -79,6 +145,12 @@
     .grid--card__headline,
     .grid--card__detail {
         padding-right: calc( var( --base ) * 5 );
+
+
+
+        @include breakpoint( portrait ) {
+            padding-right: calc( var( --base ) * 6 );
+        }
     }
     .grid--card__thumbnail {
         grid-area: thumbnail;

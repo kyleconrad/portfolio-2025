@@ -1,3 +1,5 @@
+@use '../_variables/' as *;
+
 // Footer
 
 .footer {
@@ -10,8 +12,38 @@
     gap: calc( var( --base ) * 5 );
 
 
+    .nav {
+        order: 1;
+
+
+
+        @include breakpoint( portrait ) {
+            order: 2;
+        }
+    }
 
     .colophon {
+        order: 2;
+
         text-align: right;
+
+
+
+        @include breakpoint( portrait ) {
+            order: 1;
+
+            text-align: left;
+        }
+    }
+
+
+
+    @include breakpoint( portrait ) {
+        flex-direction: column;
+
+        align-items: start;
+        justify-content: start;
+
+        gap: calc( var( --base ) * 4 );
     }
 }

@@ -264,18 +264,20 @@
 
     .video__container:has( video.paused ) {
         &:after {
-            display: none;
+            display: block;
 
             position: absolute;
             left: 50%;
             top: 50%;
 
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
 
             background: url( 'data:image/svg+xml;utf8,<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><rect width="48" height="48" rx="24" fill="%23FEFEFE"/><path d="M33 24L19 33L19 15L33 24Z" fill="%23060606"/></svg>' ) no-repeat center center / 100% 100%;
 
             transform: translate( -50%, -50% );
+
+            pointer-events: none;
 
             z-index: 5;
 

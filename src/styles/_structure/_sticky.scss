@@ -1,7 +1,16 @@
+@use '../_variables/' as *;
+
 // Sticky positioning
 
 .sticky {
     position: sticky;
 
     top: calc( var( --base ) * 5 );
+
+
+
+    @include breakpoint( portrait ) {
+        position: relative;
+        top: auto;
+    }
 }

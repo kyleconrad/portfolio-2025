@@ -6,7 +6,7 @@
 .stats__number {
     @include Hauss;
 
-    font-size: clamp( 72px, calc( var( --base ) * 12 ), 160px );
+    font-size: clamp( 64px, calc( var( --base ) * 12 ), 160px );
 
     letter-spacing: -0.04em;
     line-height: 0.8;
