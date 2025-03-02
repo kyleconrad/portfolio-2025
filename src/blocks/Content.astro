@@ -13,3 +13,4 @@ const { content } = Astro.props;
 { ( content.__typename === 'ContentStats' ) && <Stats content={ content } /> }
 { ( content.__typename === 'ContentQuote' ) && <Quote content={ content } /> }
 { ( content.__typename === 'ContentSingleColumnImage' ) && <SingleColumnImage content={ content } /> }
+{ ( content.__typename === 'ContentDoubleColumnImage' ) && <DoubleColumnImage content={ content } /> }

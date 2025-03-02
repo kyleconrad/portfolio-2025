@@ -1,0 +1,14 @@
+// Double Column Images Content Block
+
+.doublecolumn__row {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+
+    gap: calc( var( --base ) * 3 );
+}
+
+.doublecolumn__row__image {
+    flex-grow: 1;
+    flex-basis: 0;
+}

@@ -221,6 +221,24 @@ async function getCaseStudy( id ) {
 								json
 							}
 						}
+						... on ContentDoubleColumnImage {
+							__typename
+							leftImage {
+								url
+								width
+								height
+								description
+							}
+							rightImage {
+								url
+								width
+								height
+								description
+							}
+							caption {
+								json
+							}
+						}
 					}
 				}
 			}
