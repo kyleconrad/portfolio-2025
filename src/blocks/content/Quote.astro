@@ -4,7 +4,7 @@ import { headlineOptions } from "../../lib/contentful";
 
 const { content } = Astro.props;
 ---
-<blockquote class="quote padding-left--80 padding-right--80 grid--columns grid--columns--with-caption text--black">
+<blockquote class="quote padding-left--80 padding-right--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns grid--columns--with-caption text--black">
     <div class="grid--columns__sidebar">
         { ( content.name || content.detail ) &&
             <div class="sticky">

@@ -49,21 +49,21 @@
 .h2 {
     font-size: clamp( 24px, calc( var( --base ) * 5 ), 64px );
 
-    @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 2px, $line-height: 1.1 );
+    @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 4px, $line-height: 1.1 );
 
 
 
     &--lede {
         line-height: 1.2;
 
-        @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 2px, $line-height: 1.2 );
+        @include text-crop( $top-adjustment: 3px, $bottom-adjustment: 4px, $line-height: 1.2 );
     }
 }
 
 .h3 {
     font-size: clamp( 20px, calc( var( --base ) * 3 ), 48px );
 
-    @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 2px, $line-height: 1 );
+    @include text-crop( $top-adjustment: 5px, $bottom-adjustment: 4px, $line-height: 1 );
 }
 
 
@@ -74,9 +74,9 @@
     @include Hauss;
 
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    line-height: 1.1;
 
-    @include text-crop( $top-adjustment: 2px, $bottom-adjustment: 2px, $line-height: 1.2 );
+    @include text-crop( $top-adjustment: 2px, $bottom-adjustment: 4px, $line-height: 1.2 );
 }
 
 .h4 {

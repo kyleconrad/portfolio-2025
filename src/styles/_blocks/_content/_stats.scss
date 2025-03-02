@@ -10,6 +10,16 @@
     align-items: center;
 
     gap: calc( var( --base ) * 4 );
+
+
+
+    @include breakpoint( mobile ) {
+        flex-direction: column;
+
+        align-items: start;
+
+        gap: calc( var( --base ) * 3 );
+    }
 }
 
 .stats__list__stat {

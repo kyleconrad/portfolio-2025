@@ -60,7 +60,7 @@ function copyRenderOptions( links ) {
     }
 }
 ---
-<section class="text padding-left--80 padding-right--80 grid--columns text--black">
+<section class="text padding-left--80 padding-right--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns text--black">
     <div class="grid--columns__sidebar">
         { ( content.subhead ) &&
             <span class="subhead sticky">{ content.subhead }</span>
@@ -72,7 +72,7 @@ function copyRenderOptions( links ) {
             <h2 class="h4">{ content.header }</h2>
         }
 
-        <div class="grid--sidebar content">
+        <div class="grid--sidebar grid--sidebar--no-sidebar content">
             <div set:html={ documentToHtmlString( content.copy.json, copyRenderOptions( content.copy.links ) ) } class="grid--columns__content" />
         </div>
     </div>

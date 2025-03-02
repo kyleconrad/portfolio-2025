@@ -14,6 +14,14 @@
     @include breakpoint( landscape ) {
         gap: calc( var( --base ) * 0.75 );
     }
+
+    @include breakpoint( mobile ) {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+
+        // gap: 0;
+    }
 }
 
 .lede__details__row {
@@ -24,6 +32,18 @@
     align-items: center;
 
     gap: var( --base );
+
+
+
+    @include breakpoint( mobile ) {
+        flex-basis: calc( ( 100% - ( var( --base ) * 0.75 ) ) * 0.5 );
+
+
+
+        &:nth-child( 5 ) {
+            flex-basis: 100%;
+        }
+    }
 }
 
 

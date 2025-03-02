@@ -4,7 +4,7 @@ import { listOptions } from "../../lib/contentful";
 
 const { content } = Astro.props;
 ---
-<section class="stats padding-left--80 padding-right--80 grid--columns text--black">
+<section class="stats padding-left--80 padding-right--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns text--black">
     <div class="grid--columns__sidebar">
         { ( content.subhead ) &&
             <span class="subhead sticky">{ content.subhead }</span>

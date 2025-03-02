@@ -69,6 +69,7 @@ $sidebarWidth: 20%;
 
         &--keep-columns {
             grid-template-columns: 1fr calc( $sidebarWidth * 1.25 ); 
+
             grid-template-areas: 
                 "column sidebar"; 
             
@@ -81,9 +82,23 @@ $sidebarWidth: 20%;
         }
     }
 
+    @include breakpoint( mobile ) {
+        &.lede {
+            grid-template-columns: 1fr; 
+            grid-template-rows: auto auto;
 
+            grid-template-areas: 
+                "sidebar"
+                "column"; 
 
-
+            
+            
+            .grid--columns__sidebar {
+                padding-bottom: calc( var( --base ) * 5 );
+                padding-left: 0;
+            }
+        }
+    }
 }
 
 
@@ -126,7 +141,13 @@ $sidebarWidth: 20%;
 
         grid-template-areas: 
             "content"
-            "sidebar"; 
+            "sidebar";
+
+        
+        
+        &--no-sidebar {
+            gap: 0;
+        }
     }
 }
 
