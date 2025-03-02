@@ -6,6 +6,8 @@ $controlHeight: 6px;
 .video__container {
     display: block;
     position: relative;
+
+    background: var( --black );
 }
 
 
@@ -231,6 +233,12 @@ $controlHeight: 6px;
             z-index: 5;
 
             content: '';
+        }
+
+
+
+        .video__video {
+            opacity: 0.75;
         }
     }
 }

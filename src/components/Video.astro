@@ -8,7 +8,10 @@ const poster = content.videoPoster.url + '?fm=webp&w=1200&q=75';
 const audio = content.audioBoolean;
 const controlAlign = ( audio ) ? 'video__control--audio' : '';
 
-const loop = content.loop;
+// const loop = content.loop;
+
+// console.log( content.loop );
+
 ---
 <video-container>
     <div class="video__container">
@@ -35,7 +38,7 @@ const loop = content.loop;
             }
         </div>
 
-        <video preload="metadata" playsinline muted disablePictureInPicture controlsList="nofullscreen nodownload" poster={ poster } src={ content.videoMp4.url } class="video__video paused">
+        <video preload="metadata" playsinline muted disablePictureInPicture controlsList="nofullscreen nodownload" poster={ poster } src={ content.videoMp4.url } data-loop={ content.loop } class="video__video paused"></video>
             <source src={ content.videoWebM.url } type="video/webm" />
             <source src={ content.videoOgg.url } type="video/ogg" />
             <source src={ content.videoMp4.url } type="video/mp4" />
@@ -63,6 +66,15 @@ const loop = content.loop;
                     videoInput = this.querySelector<HTMLInputElement>( '.video__control__input' );
 
             const   audioControl = this.querySelector<HTMLButtonElement>( '.video__audio__control' );
+
+
+
+            //// Set video loop if true
+            const   loop = video.dataset.loop;
+            
+            if ( loop ) {
+                video.loop = true;
+            }
 
 
 
