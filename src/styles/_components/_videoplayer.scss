@@ -54,10 +54,20 @@ $controlHeight: 6px;
     &--audio {
         padding-bottom: calc( var( --base ) * 2 );
     }
-}
 
-.video__container:hover {
-    .video__control {
+
+
+    & > * {
+        z-index: 2;
+    }
+
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
         background:
             linear-gradient(
                 to top,
@@ -70,7 +80,25 @@ $controlHeight: 6px;
                 rgb( from var( --black ) r g b / 0% ) 100%
             );
 
+        opacity: 0;
+
+        transition: var( --transition );
+
+        z-index: 1;
+
+        content: '';
+    }
+}
+
+.video__container:hover {
+    .video__control {
         opacity: 1;
+
+
+
+        &:after {
+            opacity: 0.85;
+        }
     }
 }
 
