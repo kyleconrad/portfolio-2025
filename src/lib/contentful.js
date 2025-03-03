@@ -359,23 +359,28 @@ export const listOptions = {
 
 // Image options
 export function imageResponsive( url, width ) {
+	const quality = 85;
+	
 	const srcsetAvif =
-		url + '?fm=avif&w=800&q=90 800w, ' +
-		url + '?fm=avif&w=1200&q=90 1200w, ' +
-		url + '?fm=avif&w=1600&q=90 1600w, ' +
-		url + '?fm=avif&q=90 ' + width + 'w';
+		url + '?fm=avif&w=800&q=' + quality + ' 800w, ' +
+		url + '?fm=avif&w=1200&q=' + quality + ' 1200w, ' +
+		url + '?fm=avif&w=1600&q=' + quality + ' 1600w, ' +
+		url + '?fm=avif&q=' + quality + ' ' + width + 'w';
 	const srcsetWebP =
-		url + '?fm=webp&w=800&q=90 800w, ' +
-		url + '?fm=webp&w=1200&q=90 1200w, ' +
-		url + '?fm=webp&w=1600&q=90 1600w, ' +
-		url + '?fm=webp&q=90 ' + width + 'w';
+		url + '?fm=webp&w=800&q=' + quality + ' 800w, ' +
+		url + '?fm=webp&w=1200&q=' + quality + ' 1200w, ' +
+		url + '?fm=webp&w=1600&q=' + quality + ' 1600w, ' +
+		url + '?fm=webp&q=' + quality + ' ' + width + 'w';
 	const srcset =
-		url + '?w=800&q=90 800w, ' +
-		url + '?w=1200&q=90 1200w, ' +
-		url + '?w=1600&q=90 1600w, ' +
-		url + '?q=90 ' + width + 'w';
+		url + '?w=800&q=' + quality + ' 800w, ' +
+		url + '?w=1200&q=' + quality + ' 1200w, ' +
+		url + '?w=1600&q=' + quality + ' 1600w, ' +
+		url + '?q=' + quality + ' ' + width + 'w';
 
-	const sizes = '(max-width: 700px) 800px, (max-width: 1024px) 1200px, (max-width: 1600px) 1600px, ' + width + 'px';
+	const sizes =
+		'(max-width: 700px) 800px, ' +
+		'(max-width: 1024px) 1200px, ' + 
+		'(max-width: 1600px) 1600px, ' + width + 'px';
 
 
 
