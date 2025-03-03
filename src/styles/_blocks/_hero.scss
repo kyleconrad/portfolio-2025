@@ -33,4 +33,10 @@
     vertical-align: baseline;
 
     transform: translateY( 7.5% );
+
+
+
+    @include breakpoint( portrait ) {
+        margin-right: 0.2ch;
+    }
 }
