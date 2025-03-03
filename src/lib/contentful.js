@@ -249,6 +249,9 @@ async function getCaseStudy( id ) {
 									description
 								}
 							}
+							caption {
+								json
+							}
 						}
 						... on ContentVideo {
 							__typename

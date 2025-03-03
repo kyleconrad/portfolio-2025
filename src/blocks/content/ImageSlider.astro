@@ -1,4 +1,7 @@
 ---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { headlineOptions } from "../../lib/contentful";
+
 import Slide from '../../components/Slide.astro';
 
 const { content } = Astro.props;
@@ -6,7 +9,7 @@ const { content } = Astro.props;
 <slider-section class="slider padding-left--80 padding-right--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns overflow--hidden">
     <div class="grid--columns__sidebar"></div>
 
-    <div class="grid--columns__column">
+    <figure class="grid--columns__column">
         <div class="slider__slider">
             {
                 content.imagesCollection.items.map( ( image ) => (
@@ -14,7 +17,13 @@ const { content } = Astro.props;
                 ))
             }
         </div>
-    </div>
+
+        { ( content.caption ) &&
+            <div class="grid--sidebar colophon text--gray margin-top--24">
+                <figcaption set:html={ documentToHtmlString( content.caption.json, headlineOptions ) } class="grid--columns__content" />
+            </div>
+        }
+    </figure>
 </slider-section>
 
 <script>

@@ -16,7 +16,8 @@ figcaption {
     }
 
     em {
-        @include Inter( regular, true );
+        // @include Inter( regular, true );
+        font-style: italic;
     }
 
 
