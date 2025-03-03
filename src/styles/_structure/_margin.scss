@@ -1,4 +1,6 @@
-// Padding
+@use '../_variables/' as *;
+
+// Margins
 $sides: top, left, right, bottom;
 
 
@@ -12,5 +14,21 @@ $sides: top, left, right, bottom;
         .margin-#{ $side }--#{ 8 * $i * 0.5 } {
             margin-#{ $side }: calc( var( --base ) * #{ $i * 0.5 } );
         }
+    }
+}
+
+
+
+@include breakpoint( mobile ) {
+    @for $i from 0 through 20 {
+        .mobile-margin--#{ 8 * $i * 0.5 } {
+            margin: calc( var( --base ) * #{ $i * 0.5 } );
+        }
+
+        @each $side in $sides {
+            .mobile-margin-#{ $side }--#{ 8 * $i * 0.5 } {
+                margin-#{ $side }: calc( var( --base ) * #{ $i * 0.5 } );
+            }
+        }       
     }
 }

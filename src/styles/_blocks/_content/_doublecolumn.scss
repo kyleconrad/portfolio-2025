@@ -14,6 +14,8 @@
     @include breakpoint( mobile ) {
         flex-direction: column;
         align-items: stretch;
+
+        gap: calc( var( --base ) * 2 );
     }
 }
 
