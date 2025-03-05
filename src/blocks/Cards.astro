@@ -3,7 +3,7 @@ import Card from '../components/Card.astro';
 
 const { subhead, cards } = Astro.props;
 ---
-<section class="cards padding--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns text--black">
+<card-menu class="cards padding--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns text--black">
     <div class="grid--columns__sidebar">
         <span class="subhead sticky">{ subhead }</span>
     </div>
@@ -15,4 +15,48 @@ const { subhead, cards } = Astro.props;
             ))
         }
     </ul>
-</section>
+</card-menu>
+
+<script>
+    class CardMenu extends HTMLElement {
+        constructor() {
+            super();
+
+            const   links = this.querySelectorAll<HTMLAnchorElement>( '.cards__card' );
+
+            let     prefetchArray = [];
+
+
+
+            [ ...links ].forEach( link => {
+                link.addEventListener( 'mouseover', () => {
+                    prefetchUrl( link, prefetchArray );
+                });
+
+                link.addEventListener( 'touchstart', () => {
+                    prefetchUrl( link, prefetchArray );
+                });
+            });
+
+
+
+            function prefetchUrl( link, array ) {
+                const   href = link.href;
+
+
+                if ( !array.includes( href ) ) {
+                    const   prefetch = document.createElement( 'link' );
+
+                    prefetch.rel = 'prefetch';
+                    prefetch.href = href;
+
+                    document.head.appendChild( prefetch );
+
+                    array.push( href );
+                }
+            }
+        }
+    }
+
+    customElements.define( 'card-menu', CardMenu );
+</script>
