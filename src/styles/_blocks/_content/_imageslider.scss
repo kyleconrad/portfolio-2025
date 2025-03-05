@@ -1,3 +1,5 @@
+@use '../../_variables/' as *;
+
 // Image Slider
 
 .slider__slider {
@@ -18,10 +20,7 @@
 
     .flickity-viewport {
         position: relative;
-        // height: 100%;
         width: 100%;
-
-        // height: clamp( 400px, 65vh, 700px );
 
         touch-action: pan-y;
     }
@@ -39,8 +38,18 @@
         left: 0;
 
         width: 100%;
-        // width: auto;
-        // max-width: 200%;
+
+
+
+        &:not( :last-child ) {
+            margin-right: calc( var( --base ) * 3 );
+
+
+
+            @include breakpoint( mobile ) {
+                margin-right: calc( var( --base ) * 2 );
+            }
+        }
     }
 
 

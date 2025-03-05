@@ -5,6 +5,7 @@ import Head from '../elements/Head.astro';
 
 import Hero from '../blocks/Hero.astro';
 import Content from '../blocks/Content.astro';
+import List from '../blocks/List.astro';
 import Footer from '../blocks/Footer.astro';
 
 import Lede from '../blocks/content/Lede.astro';
@@ -53,6 +54,8 @@ const metadataUrl = 'https://kyleconrad.com/' + caseStudy.slug + '/';
                     <Content content={ content } />
                 ))
             }
+
+            <List subhead="Related Work" list={ caseStudy.relatedWorkCollection.items } />
         </main>
 
         <Footer navigation={ navigation } />

@@ -67,7 +67,7 @@ const controlAlign = ( audio ) ? 'video__control--audio' : '';
             //// Set video loop if true
             const   loop = video.dataset.loop;
             
-            if ( loop ) {
+            if ( loop === 'true' ) {
                 video.loop = true;
             }
 

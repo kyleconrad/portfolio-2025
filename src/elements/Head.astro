@@ -72,7 +72,7 @@ const { title, description, image, url } = Astro.props;
 
 
     function widowControl( width ) {
-        let 	widowElements = document.querySelectorAll<HTMLParagraphElement>( '.content p, p.small' );
+        let 	widowElements = document.querySelectorAll<HTMLParagraphElement>( '.content p, p.small, .lede__content p' );
 
         [ ...widowElements ].forEach( element => {
             element.innerHTML = element.innerHTML.replace( /&nbsp;/g, ' ' );

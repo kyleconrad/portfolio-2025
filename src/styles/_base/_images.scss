@@ -19,3 +19,15 @@ video {
         width: auto;
     }
 }
+
+
+
+
+
+//// Background colors for case study images
+.singlecolumn,
+.doublecolumn {
+    picture {
+        background: var( --accent );
+    }
+}

@@ -276,6 +276,14 @@ async function getCaseStudy( id ) {
 						}
 					}
 				}
+				relatedWorkCollection {
+					items {
+						slug
+						client
+						accentColor
+						shortHeadline
+					}
+				}
 			}
 		}
 	`;

@@ -7,7 +7,7 @@ const { image } = Astro.props;
 
 const imageSrcset = imageResponsive( image.url, image.width );
 ---
-<picture class="rounded overflow--hidden margin-right--24 mobile-margin-right--16" nopin="nopin">
+<picture class="rounded overflow--hidden" nopin="nopin">
     <source
         type="image/avif"
         data-flickity-lazyload-srcset={ imageSrcset.avif }
