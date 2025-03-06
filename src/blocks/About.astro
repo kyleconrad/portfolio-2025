@@ -8,25 +8,25 @@ const headlineRender = documentToHtmlString( headline.json, headlineOptions ).re
 ---
 <section class="about padding--80 mobile-padding-left--40 mobile-padding-right--40 grid--columns text--black">
     <div class="grid--columns__sidebar">
-        <span class="subhead sticky">About</span>
+        <h2 class="subhead sticky">About</h2>
     </div>
 
     <div class="grid--columns__column grid--sidebar hover-emoji">
         <div class="grid--columns__content">
-            <h4 set:html={ headlineRender } class="h2" />
+            <h3 set:html={ headlineRender } class="h2" />
 
             <div set:html={ documentToHtmlString( copy.json, copyOptions ) } class="content margin-top--24" />
         </div>
 
         <div class="grid--columns__sidebar">
             <div>
-                <h5 class="h6 text--black">{ subhead1 }</h5>
+                <h4 class="h6 text--black">{ subhead1 }</h4>
                 <ul set:html={ documentToHtmlString( list1.json, listOptions ) } class="about__list margin-top--4 text--gray" />
             </div>
             
             { ( subhead2 && list2 ) &&
                 <div>
-                    <h5 class="h6 text--black">{ subhead2 }</h5>
+                    <h4 class="h6 text--black">{ subhead2 }</h4>
                     <ul set:html={ documentToHtmlString( list2.json, listOptions ) } class="about__list margin-top--4 text--gray" />
                 </div>
             }
