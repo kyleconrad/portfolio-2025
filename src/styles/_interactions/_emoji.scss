@@ -1,75 +1,77 @@
 // Hover Emoji
 
-.hover-emoji {
-    .hover-me {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-me.png' ) 24 24,
-                auto;
+@media ( hover: hover ) {
+    .hover-emoji {
+        .hover-me {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-me.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-taco {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-taco.png' ) 24 24,
-                auto;
+        .hover-taco {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-taco.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-castle {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-castle.png' ) 24 24,
-                auto;
+        .hover-castle {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-castle.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-football {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-football.png' ) 24 24,
-                auto;
+        .hover-football {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-football.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-empathy {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-empathy.png' ) 24 24,
-                auto;
+        .hover-empathy {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-empathy.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-detail {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-detail.png' ) 24 24,
-                auto;
+        .hover-detail {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-detail.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-design {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-design.png' ) 24 24,
-                auto;
+        .hover-design {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-design.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-code {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-code.png' ) 24 24,
-                auto;
+        .hover-code {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-code.png' ) 24 24,
+                    auto;
+            }
         }
-    }
 
-    .hover-word {
-        &:hover {
-            cursor:
-                url( '/images/emoji/emoji-word.png' ) 24 24,
-                auto;
+        .hover-word {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-word.png' ) 24 24,
+                    auto;
+            }
         }
     }
 }
