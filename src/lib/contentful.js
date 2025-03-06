@@ -271,6 +271,19 @@ async function getCaseStudy( id ) {
 							loop
 							showBrowserChrome
 						}
+						... on ContentLottieAnimation {
+							__typename
+							lottieFile {
+								url
+							}
+							width
+							height
+							caption {
+								json
+							}
+							loop
+							showBrowserChrome
+						}
 					}
 				}
 				relatedWorkCollection {

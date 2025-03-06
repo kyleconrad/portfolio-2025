@@ -6,6 +6,7 @@ import SingleColumnImage from '../blocks/content/SingleColumnImage.astro';
 import DoubleColumnImage from '../blocks/content/DoubleColumnImage.astro';
 import ImageSlider from '../blocks/content/ImageSlider.astro';
 import Video from '../blocks/content/Video.astro';
+import Lottie from '../blocks/content/Lottie.astro';
 
 const { content } = Astro.props;
 ---
@@ -16,3 +17,4 @@ const { content } = Astro.props;
 { ( content.__typename === 'ContentDoubleColumnImage' ) && <DoubleColumnImage content={ content } /> }
 { ( content.__typename === 'ContentImageSlider' ) && <ImageSlider content={ content } /> }
 { ( content.__typename === 'ContentVideo' ) && <Video content={ content } /> }
+{ ( content.__typename === 'ContentLottieAnimation' ) && <Lottie content={ content } /> }

@@ -1,0 +1,73 @@
+---
+const { content } = Astro.props;
+---
+<lottie-container>
+    <div class="lottie__container">
+        <link rel="prefetch" href={ content.lottieFile.url } />
+        <canvas class="lottie__player" data-src={ content.lottieFile.url } data-loop={ content.loop } style={ `--aspect-ratio: ${ content.width } / ${ content.height };` }></canvas>
+    </div>
+</lottie-container>
+
+<script>
+    import { DotLottieWorker } from '@lottiefiles/dotlottie-web';
+
+    class LottieContainer extends HTMLElement {
+        constructor() {
+            super();
+
+            let     canvasState = {
+                        paused: true,
+                        played: false
+                    }
+
+            const   canvas = this.querySelector<HTMLCanvasElement>( 'canvas' );
+
+            const   src = canvas.dataset.src,
+                    loop = ( canvas.dataset.loop === 'true' );
+            
+
+            
+            //// Initiate lottie player
+            const dotLottie = new DotLottieWorker({
+                canvas: canvas,
+                src: src,
+                autoplay: true,
+                loop: loop,
+                useFrameInterpolation: false,
+                renderConfig: {
+                    freezeOnOffscreen: true,
+                    autoResize: true,
+                    devicePixelRatio: 1.5
+                }
+            });
+            // window.addEventListener( 'scroll', ( e ) => {
+            //     let     windowHeight = window.innerHeight;
+
+            //     let     canvasRect = canvas.getBoundingClientRect(),
+            //             canvasHeight = canvasRect.height,
+            //             canvasY = canvasRect.top + window.scrollY;
+                
+            //     let     playY = canvasY - ( windowHeight * 0.5 ),
+            //             // pauseY = canvasY + canvasHeight;
+            //             pauseY = canvasY + ( windowHeight * 0.25 );
+                
+                
+            //     ////// Play or pause video when scrolled to
+            //     if ( window.scrollY >= pauseY && !canvasState.paused || window.scrollY < playY && !canvasState.paused ) {
+            //         // dotLottie.freeze();
+            //         console.log( 'pause' );
+
+            //         // canvasState.paused = true;
+            //     }
+            //     else if ( window.scrollY < pauseY && window.scrollY >= playY && canvasState.paused ) {
+            //         // dotLottie.unfreeze();
+            //         console.log( 'play' );
+
+            //         // canvasState.paused = false;
+            //     }
+            // });
+        }
+    }
+
+    customElements.define( 'lottie-container', LottieContainer );
+</script>
