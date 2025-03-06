@@ -11,6 +11,7 @@ export const contentfulClient = contentful.createClient({
 	space: $SPACE,
 	accessToken: $TOKEN,
 	host: import.meta.env.DEV ? "preview.contentful.com" : "cdn.contentful.com",
+	headers: { "Accept-Encoding": "gzip" }
 });
 
 
