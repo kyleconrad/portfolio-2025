@@ -26,14 +26,8 @@ $sidebarWidth: 20%;
         grid-area: sidebar;
 
         padding-right: calc( var( --base ) * 5 );
-
-
-
-        @include breakpoint( portrait ) {
-            padding-right: 0;
-            padding-bottom: calc( var( --base ) * 3 );
-        }
     }
+
     .grid--columns__column {
         grid-area: column;
     }
@@ -46,9 +40,24 @@ $sidebarWidth: 20%;
 
         grid-template-areas: 
             "sidebar"
-            "column"; 
+            "column";
+
+
+
+        .grid--columns__sidebar {
+            padding-right: 0;
+            padding-bottom: calc( var( --base ) * 3 );
+        }
 
         
+
+        &.cards {
+            .grid--columns__sidebar {
+                padding-bottom: calc( var( --base ) * 4 );
+            }
+        }
+
+
 
         &.quote,
         &.singlecolumn,
@@ -86,14 +95,6 @@ $sidebarWidth: 20%;
 
 
     @include breakpoint( mobile ) {
-        &.cards {
-            .grid--columns__sidebar {
-                padding-bottom: calc( var( --base ) * 4 );
-            }
-        }
-
-
-
         &.lede {
             grid-template-columns: 1fr; 
             grid-template-rows: auto auto;
@@ -183,25 +184,27 @@ $sidebarWidth: 20%;
     .grid--card__headline {
         grid-area: headline;
     }
+
     .grid--card__detail {
         grid-area: detail;
     }
+
     .grid--card__headline,
     .grid--card__detail {
         padding-right: calc( var( --base ) * 5 );
-
-
-
-        @include breakpoint( portrait ) {
-            padding-right: calc( var( --base ) * 6 );
-        }
-
-        @include breakpoint( mobile ) {
-            padding-right: 0;
-        }
     }
+    
     .grid--card__thumbnail {
         grid-area: thumbnail;
+    }
+
+
+
+    @include breakpoint( portrait ) {
+        .grid--card__headline,
+        .grid--card__detail {
+            padding-right: calc( var( --base ) * 6 );
+        }
     }
 
 
@@ -216,6 +219,13 @@ $sidebarWidth: 20%;
             "thumbnail"
             "headline"
             "detail";
+
+        
+        
+        .grid--card__headline,
+        .grid--card__detail {
+            padding-right: 0;
+        }
     }
 }
 
