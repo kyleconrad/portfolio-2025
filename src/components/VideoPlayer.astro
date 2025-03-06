@@ -35,7 +35,6 @@ const controlAlign = ( audio ) ? 'video__control--audio' : '';
 
         <video preload="metadata" playsinline muted disablePictureInPicture controlsList="nofullscreen nodownload" poster={ poster } src={ content.videoMp4.url } data-loop={ content.loop } class="video__video paused"></video>
             <source src={ content.videoWebM.url } type="video/webm" />
-            <source src={ content.videoOgg.url } type="video/ogg" />
             <source src={ content.videoMp4.url } type="video/mp4" />
         </video>
     </div>

@@ -258,9 +258,6 @@ async function getCaseStudy( id ) {
 							videoWebM {
 								url
 							}
-							videoOgg {
-								url
-							}
 							videoMp4 {
 								url
 							}
