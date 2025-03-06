@@ -72,6 +72,13 @@ const controlAlign = ( audio ) ? 'video__control--audio' : '';
 
 
 
+            //// Scroll preload & play/pause
+                        window.addEventListener( 'scroll', ( e ) => {
+                scrollVideo( window.scrollY );
+            });
+
+
+
             //// Setting up all video functions
             function preloadVideo() {
                 video.preload = 'auto';
@@ -167,16 +174,12 @@ const controlAlign = ( audio ) ? 'video__control--audio' : '';
                 }
             }
 
-
-
-
-            //// Scroll preload & play/pause
-            window.addEventListener( 'scroll', ( e ) => {
+            function scrollVideo( windowY ) {
                 let     windowHeight = window.innerHeight;
 
                 let     videoRect = video.getBoundingClientRect(),
                         videoHeight = videoRect.height,
-                        videoY = videoRect.top + window.scrollY;
+                        videoY = videoRect.top + windowY;
                 
                 let     preloadY = videoY - ( windowHeight * 3 ),
                         playY = videoY - ( windowHeight * 0.95 ),
@@ -185,22 +188,22 @@ const controlAlign = ( audio ) ? 'video__control--audio' : '';
                 
 
                 ////// Preload video
-                if ( window.scrollY >= preloadY && videoState.preload != 'auto' ) {
+                if ( windowY >= preloadY && videoState.preload != 'auto' ) {
                     preloadVideo();
                 }
 
                 ////// Play or pause video when scrolled to
-                if ( window.scrollY >= pauseY && !videoState.paused || window.scrollY < playY && !videoState.paused ) {
+                if ( windowY >= pauseY && !videoState.paused || windowY < playY && !videoState.paused ) {
                     pauseVideo( false );
                     
                     if ( audioControl ) {
                         muteAudio();
                     }
                 }
-                else if ( window.scrollY < pauseY && window.scrollY >= playY && videoState.paused && !videoState.manualPause ) {
+                else if ( windowY < pauseY && windowY >= playY && videoState.paused && !videoState.manualPause ) {
                     playVideo();
                 }
-            });
+            }
 
 
 
