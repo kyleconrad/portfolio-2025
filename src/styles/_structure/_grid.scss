@@ -54,17 +54,15 @@ $sidebarWidth: 20%;
         &.singlecolumn,
         &.doublecolumn,
         &.video {
-            @include breakpoint( portrait ) {
-                grid-template-areas: 
-                    "column"
-                    "sidebar"; 
-    
-    
-                
-                .grid--columns__sidebar {
-                    padding-bottom: 0;
-                    padding-top: calc( var( --base ) * 3 );
-                }
+            grid-template-areas: 
+                "column"
+                "sidebar"; 
+
+
+            
+            .grid--columns__sidebar {
+                padding-bottom: 0;
+                padding-top: calc( var( --base ) * 3 );
             }
         }
 
@@ -85,7 +83,17 @@ $sidebarWidth: 20%;
         }
     }
 
+
+
     @include breakpoint( mobile ) {
+        &.cards {
+            .grid--columns__sidebar {
+                padding-bottom: calc( var( --base ) * 4 );
+            }
+        }
+
+
+
         &.lede {
             grid-template-columns: 1fr; 
             grid-template-rows: auto auto;
@@ -148,7 +156,7 @@ $sidebarWidth: 20%;
 
         
         
-        .text &
+        .text &,
         .slider & {
             gap: 0;
         }
@@ -202,7 +210,7 @@ $sidebarWidth: 20%;
         grid-template-columns: 1fr; 
         grid-template-rows: auto auto auto;
 
-        gap: calc( var( --base ) * 2 );
+        gap: calc( var( --base ) * 3 );
 
         grid-template-areas: 
             "thumbnail"
