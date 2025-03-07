@@ -62,7 +62,8 @@ $sidebarWidth: 20%;
         &.quote,
         &.singlecolumn,
         &.doublecolumn,
-        &.video {
+        &.video,
+        &.lottie {
             grid-template-areas: 
                 "column"
                 "sidebar"; 
@@ -193,7 +194,7 @@ $sidebarWidth: 20%;
     .grid--card__detail {
         padding-right: calc( var( --base ) * 5 );
     }
-    
+
     .grid--card__thumbnail {
         grid-area: thumbnail;
     }

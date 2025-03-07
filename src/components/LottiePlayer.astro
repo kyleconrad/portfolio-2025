@@ -27,6 +27,12 @@ const { content } = Astro.props;
             const   src = canvas.dataset.src,
                     loop = ( canvas.dataset.loop === 'true' );
             
+            let     ratio = 2;
+
+            if ( window.outerWidth > 700 ) {
+                ratio = 1.5;
+            }
+            
 
             
             //// Initiate lottie player
@@ -40,7 +46,7 @@ const { content } = Astro.props;
                 renderConfig: {
                     freezeOnOffscreen: true,
                     autoResize: true,
-                    devicePixelRatio: 1.5
+                    devicePixelRatio: ratio
                 }
             });
 
