@@ -28,7 +28,7 @@ const { content } = Astro.props;
                     loop = ( canvas.dataset.loop === 'true' );
 
             //// Calculate 2/3 pixel ratio for smoother animations
-            let     ratio = ( window.devicePixelRatio / 3 ) * 2;
+            let     ratio = ( window.devicePixelRatio >= 1.5 ) ? ( window.devicePixelRatio / 3 ) * 2 : 1;
             
 
             
