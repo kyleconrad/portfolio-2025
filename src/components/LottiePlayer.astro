@@ -20,6 +20,8 @@ const { content } = Astro.props;
                         played: false
                     }
 
+            const   random = randomIntFromInterval( 1, 100 );
+
             const   canvas = this.querySelector<HTMLCanvasElement>( 'canvas' );
 
             const   src = canvas.dataset.src,
@@ -34,38 +36,20 @@ const { content } = Astro.props;
                 autoplay: true,
                 loop: loop,
                 useFrameInterpolation: false,
+                workerId: 'lottie-worker--' + random,
                 renderConfig: {
                     freezeOnOffscreen: true,
                     autoResize: true,
                     devicePixelRatio: 1.5
                 }
             });
-            // window.addEventListener( 'scroll', ( e ) => {
-            //     let     windowHeight = window.innerHeight;
 
-            //     let     canvasRect = canvas.getBoundingClientRect(),
-            //             canvasHeight = canvasRect.height,
-            //             canvasY = canvasRect.top + window.scrollY;
-                
-            //     let     playY = canvasY - ( windowHeight * 0.5 ),
-            //             // pauseY = canvasY + canvasHeight;
-            //             pauseY = canvasY + ( windowHeight * 0.25 );
-                
-                
-            //     ////// Play or pause video when scrolled to
-            //     if ( window.scrollY >= pauseY && !canvasState.paused || window.scrollY < playY && !canvasState.paused ) {
-            //         // dotLottie.freeze();
-            //         console.log( 'pause' );
 
-            //         // canvasState.paused = true;
-            //     }
-            //     else if ( window.scrollY < pauseY && window.scrollY >= playY && canvasState.paused ) {
-            //         // dotLottie.unfreeze();
-            //         console.log( 'play' );
 
-            //         // canvasState.paused = false;
-            //     }
-            // });
+            //// Random number function
+            function randomIntFromInterval( min, max ) {
+                return Math.floor( Math.random() * ( max - min + 1 ) + min );
+            }
         }
     }
 
