@@ -12,4 +12,10 @@
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+
+
+    &::selection {
+        background-color: rgb( from var( --accent ) r g b / 20% );
+    }
 }
