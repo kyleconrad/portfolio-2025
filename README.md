@@ -7,8 +7,8 @@ Running local set up will install all necessary bundles and dependencies. [Insta
     
     $ cd portfolio-2025
     $ nvm install
-    $ nvm use node
     $ npm install
+    $ nvm use
 
 ---
 
