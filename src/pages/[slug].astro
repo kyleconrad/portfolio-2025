@@ -32,7 +32,7 @@ const { id } = Astro.props;
 const navigation = await contentfulGraphQLClient.getNavigation();
 const caseStudy = await contentfulGraphQLClient.getCaseStudy( id );
 
-const metadataTitle = caseStudy.client + ' — Kyle Conrad';
+const metadataTitle = caseStudy.title + ' — Kyle Conrad';
 const metadataUrl = 'https://kyleconrad.com/' + caseStudy.slug + '/';
 ---
 <html lang="en" class="bkg--white" style={ `--accent: #${ caseStudy.accentColor };` }>

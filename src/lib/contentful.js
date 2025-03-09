@@ -135,6 +135,7 @@ async function getCaseStudy( id ) {
 	const query = `
 		query ($id: String!) {
 			contentfulCaseStudy: caseStudyV2(id: $id) {
+				title
 				slug
 				client
 				metadataDescription
