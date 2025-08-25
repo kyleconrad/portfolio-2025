@@ -10,6 +10,14 @@
             }
         }
 
+        .hover-swords {
+            &:hover {
+                cursor:
+                    url( '/images/emoji/emoji-swords.png' ) 24 24,
+                    auto;
+            }
+        }
+
         .hover-taco {
             &:hover {
                 cursor:
